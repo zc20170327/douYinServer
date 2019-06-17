@@ -17,6 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @ClassName cn.saytime.Swgger2
  * @Description
  * @date 2017-07-10 22:12:31
+ * http://localhost:8080/swagger-ui.html
  */
 @Configuration
 @EnableSwagger2
@@ -27,7 +28,7 @@ public class Swagger2  {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.example.demo.demo"))
+				.apis(RequestHandlerSelectors.basePackage("com.zhdtedu.riverchiefs"))
 				.paths(PathSelectors.any())
 				.build();
 	}
