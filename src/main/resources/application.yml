@@ -14,7 +14,7 @@ mybatis:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://172.2.15.201:3306/demo?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    url: jdbc:mysql://172.2.15.201:3306/rcsdb?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
     username: zhdt
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver

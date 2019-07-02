@@ -35,10 +35,10 @@ public class Swagger2  {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("springboot利用swagger构建api文档")
-				.description("简单优雅的restfun风格，http://blog.csdn.net/saytime")
-				.termsOfServiceUrl("http://blog.csdn.net/saytime")
-				.version("1.0")
+				.title("河水制系统API接口")
+				.description("详细描述服务的访问方法和参数说明")
+				.termsOfServiceUrl("http://www.zhdtedu.com")
+				.version("0.1")
 				.build();
 	}
 
