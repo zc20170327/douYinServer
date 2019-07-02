@@ -10,13 +10,16 @@ import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 public class Archives {
 
     @Column(name = "id",type = MySqlTypeConstant.INT,length = 11,isKey = true,isAutoIncrement = true)
-    private Integer	id;
+    private int id;
 
-    @Column(name = "name",type = MySqlTypeConstant.VARCHAR,length = 111)
-    private String	name;
+    @Column(name = "ajbm",type = MySqlTypeConstant.VARCHAR,length = 100)
+    private String ajbm;
 
-    @Column(name = "description",type = MySqlTypeConstant.TEXT)
-    private String	description;
 
+    @Column(name = "sfwz",type = MySqlTypeConstant.VARCHAR,length = 200)
+    private String sfwz;
+    private String hrhm;
+    private String jbrxm;
+    private String jbrdh;
 
 }
