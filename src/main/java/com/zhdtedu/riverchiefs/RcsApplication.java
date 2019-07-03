@@ -7,11 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.zhdtedu.riverchiefs.dao.*")
 public class RcsApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(RcsApplication.class, args);
     }
-
-
 
 }

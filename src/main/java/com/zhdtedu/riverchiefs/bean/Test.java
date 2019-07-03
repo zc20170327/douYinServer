@@ -4,10 +4,12 @@ import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 import com.gitee.sunchenbin.mybatis.actable.command.BaseModel;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
+import lombok.Data;
 
 import java.sql.Date;
 
-@Table(name = "ai_test1")
+@Data
+@Table(name = "ai_test2")
 public class Test  {
 
 
@@ -17,6 +19,7 @@ public class Test  {
 
 	@Column(name = "name",type = MySqlTypeConstant.VARCHAR,length = 111)
 	private String	name;
+
 
 	@Column(name = "description",type = MySqlTypeConstant.TEXT)
 	private String	description;
