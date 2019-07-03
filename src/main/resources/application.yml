@@ -5,8 +5,11 @@ spring:
 
 #公共配置与profiles选择无关
 mybatis:
-  typeAliasesPackage: com.xdd.entity
-  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: com.zhdtedu.riverchiefs.bean
+  mapperLocations: classpath:com/zhdtedu/riverchiefs/dao/mapper/*.xml
+
+
+
 
 ---
 
@@ -20,3 +23,12 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
+    #配置JSP视图
+    mvc:
+      view:
+        prefix: /WEB-INF/jsp/
+        suffix: .jsp
+      #控制台打印sql语句
+        logging:
+          level:
+            com.ming.ssm.mapper: debug

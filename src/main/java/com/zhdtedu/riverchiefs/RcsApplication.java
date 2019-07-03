@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.zhdtedu.riverchiefs.dao")
+@MapperScan("com.zhdtedu.riverchiefs.dao.*")
 public class RcsApplication {
 
     public static void main(String[] args) {
