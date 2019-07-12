@@ -5,8 +5,8 @@ spring:
 
 #公共配置与profiles选择无关
 mybatis:
-  typeAliasesPackage: com.zhdtedu.riverchiefs.bean
-  mapperLocations: classpath:com/zhdtedu/riverchiefs/dao/mapper/*.xml
+  typeAliasesPackage: com.zhdtedu.riverchiefs.bean,com.zhdtedu.system.bean
+  mapperLocations: classpath:com/zhdtedu/riverchiefs/dao/mapper/*.xml,classpath:com/zhdtedu/system/dao/mapper/*.xml
 
 
 

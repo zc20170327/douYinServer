@@ -1,4 +1,4 @@
-package com.zhdtedu.riverchiefs;
+package com.zhdtedu;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.zhdtedu.riverchiefs;
+package com.zhdtedu;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

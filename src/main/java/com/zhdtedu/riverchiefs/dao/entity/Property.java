@@ -1,4 +1,4 @@
-package com.zhdtedu.riverchiefs.bean;
+package com.zhdtedu.riverchiefs.dao.entity;
 
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;

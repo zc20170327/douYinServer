@@ -1,4 +1,4 @@
-package com.zhdtedu.system.utils;
+package com.zhdtedu.util;
 
 /**
  * @author: create by songhongzhe
