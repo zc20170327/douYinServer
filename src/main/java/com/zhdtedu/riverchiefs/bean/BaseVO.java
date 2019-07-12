@@ -1,4 +1,4 @@
-package com.zhdtedu.riverchiefs.vo;
+package com.zhdtedu.riverchiefs.bean;
 
 import lombok.Data;
 

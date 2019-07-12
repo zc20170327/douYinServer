@@ -32,7 +32,7 @@ public class ContentController {
  */
 
 @ApiOperation(value = "获取数据列表", notes = "获取数据列表")
-@RequestMapping(value = "/content/list", method = RequestMethod.GET)
+@RequestMapping(value = "{}/content/list{@}", method = RequestMethod.GET)
 
 public RcsResult getContentList(@RequestParam("parentId") long parentId,
                                 @RequestParam(value="pageIndex",required=false,defaultValue="1") String pageIndex) {
