@@ -43,7 +43,6 @@
             <scope>test</scope>
         </dependency>
 
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
@@ -94,7 +93,6 @@
             </exclusions>
         </dependency>
         <!-- end actable -->
-
 
 
     </dependencies>

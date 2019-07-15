@@ -1,3 +1,4 @@
+/*
 package com.zhdtedu.riverchiefs.dao.mapper;
 
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow;
@@ -27,4 +28,4 @@ public interface RcsArchiveFlowMapper {
     int updateByPrimaryKeySelective(RcsArchiveFlow record);
 
     int updateByPrimaryKey(RcsArchiveFlow record);
-}
+}*/

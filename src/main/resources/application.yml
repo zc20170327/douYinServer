@@ -9,9 +9,13 @@ mybatis:
   mapperLocations: classpath:com/zhdtedu/riverchiefs/dao/mapper/*.xml,classpath:com/zhdtedu/system/dao/mapper/*.xml
 ---
 
-#开发配置
+#开发配置172.2.15.201localhost
 spring:
   profiles: dev
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   datasource:
     url: jdbc:mysql://172.2.15.201:3306/rcsdb?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
     username: zhdt
