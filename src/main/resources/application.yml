@@ -7,10 +7,6 @@ spring:
 mybatis:
   typeAliasesPackage: com.zhdtedu.riverchiefs.bean,com.zhdtedu.system.bean
   mapperLocations: classpath:com/zhdtedu/riverchiefs/dao/mapper/*.xml,classpath:com/zhdtedu/system/dao/mapper/*.xml
-
-
-
-
 ---
 
 #开发配置
