@@ -3,7 +3,7 @@ package com.zhdtedu.riverchiefs.bean;
 import lombok.Data;
 
 @Data
-public class RscArchiveInfoVo {
+public class RcsArchiveInfoVo {
 
     private Integer id;
 

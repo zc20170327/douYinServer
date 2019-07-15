@@ -1,14 +1,13 @@
-package com.zhdtedu.riverchiefs.bean;
+package com.zhdtedu.riverchiefs.dao.entity;
 
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 @Data
 @Table(name="rcs_archive_info")
-public class RscArchiveInfo {
+public class RcsArchiveInfo {
 
     @Column(name="ID_",length = 11,isKey = true,type=MySqlTypeConstant.INT,isAutoIncrement =true)
     private Integer id;
