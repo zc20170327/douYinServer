@@ -4,6 +4,8 @@ import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -36,6 +38,8 @@ public class RcsArchiveFlow {
 
     //时限
     @Column(name = "TIMES_",type = MySqlTypeConstant.INT,length = 10)
+    @Getter
+    @Setter
     private Integer times;
 
     //时限单位
