@@ -11,39 +11,39 @@ import java.util.Date;
 @Table(name = "rcs_archive_flow")
 public class RcsArchiveFlow {
     //主键字段
-    @Column(name = "F_ID",type = MySqlTypeConstant.BIGINT,length = 10,isKey = true,isAutoIncrement = true)
-    private Long fId;
+    @Column(name = "ID_",type = MySqlTypeConstant.BIGINT,length = 10,isKey = true,isAutoIncrement = true)
+    private Long id;
 
     //案卷处理序号
-    @Column(name = "OPER_NUM",type = MySqlTypeConstant.INT,length = 10)
+    @Column(name = "OPER_NUM_",type = MySqlTypeConstant.INT,length = 10)
     private Integer operNum;
 
     //处理意见
-    @Column(name = "OPINION",type = MySqlTypeConstant.VARCHAR,length = 128,isNull = false)
+    @Column(name = "OPINION_",type = MySqlTypeConstant.VARCHAR,length = 128)
     private String opinion;
 
     //操作
-    @Column(name = "OPERATION",type = MySqlTypeConstant.VARCHAR,length = 20)
+    @Column(name = "OPERATION_",type = MySqlTypeConstant.VARCHAR,length = 20)
     private String operation;
 
     //处理人
-    @Column(name = "OPERATOR",type = MySqlTypeConstant.VARCHAR,length = 20)
+    @Column(name = "OPERATOR_",type = MySqlTypeConstant.VARCHAR,length = 20)
     private String operator;
 
     //处理时间
-    @Column(name = "OPER_TIME",type = MySqlTypeConstant.DATETIME)
+    @Column(name = "OPER_TIME_",type = MySqlTypeConstant.DATETIME)
     private Date operTime;
 
     //时限
-    @Column(name = "TIMES",type = MySqlTypeConstant.INT,length = 10)
+    @Column(name = "TIMES_",type = MySqlTypeConstant.INT,length = 10)
     private Integer times;
 
     //时限单位
-    @Column(name = "UNIT",type = MySqlTypeConstant.VARCHAR,length = 10)
+    @Column(name = "UNIT_",type = MySqlTypeConstant.VARCHAR,length = 10)
     private String unit;
 
     //处理部门
-    @Column(name = "DEPT_ID",type = MySqlTypeConstant.VARCHAR,length = 20)
+    @Column(name = "DEPT_ID_",type = MySqlTypeConstant.VARCHAR,length = 20)
     private String deptId;
 
 }

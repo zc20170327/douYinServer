@@ -43,6 +43,7 @@
             <scope>test</scope>
         </dependency>
 
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
@@ -92,7 +93,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- 分页插件 -->
+        <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper-spring-boot-starter</artifactId>
+        <version>1.2.3</version>
+    </dependency>
         <!-- end actable -->
+
 
 
     </dependencies>
