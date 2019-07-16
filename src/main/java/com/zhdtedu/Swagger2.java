@@ -28,7 +28,7 @@ public class Swagger2  {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.zhdtedu.riverchiefs"))
+				.apis(RequestHandlerSelectors.basePackage("com.zhdtedu"))
 				.paths(PathSelectors.any())
 				.build();
 	}

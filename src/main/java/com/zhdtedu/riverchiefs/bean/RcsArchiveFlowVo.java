@@ -4,7 +4,8 @@ package com.zhdtedu.riverchiefs.bean;
 
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
-import com.zhdtedu.system.dao.entity.Department;
+import com.zhdtedu.system.entity.Department;
+
 
 import java.io.Serializable;
 

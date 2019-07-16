@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"../../../mybatis-3-mapper.dtd">
+<mapper namespace="com.zhdtedu.system.mapper.SysUserMapper">
+	<!-- 部門 -->
+	<resultMap type="department" id="role_result">
+		<id property="SD_ID" column="id"/>
+		<result property="SDNAME" column="name"/>
+		<result property="S_ID" column="sId"/>
+		<result property="STATUS" column="status"/>
+	</resultMap>
+	
+	<!-- 用户 -->
+	<resultMap type="sysuser" id="sysuser_result">
+		<id property="SU_ID" column="id"/>
+		<result property="SYNAME" column="name"/>
+		<result property="TELEPHONE" column="telephone"/>
+		<result property="MAILBOX" column="mailbox"/>
+		<result property="ROLE" column="role"/>
+		<result property="STATUS" column="status"/>
+		<collection property="departments" ofType="departments">
+		 	<result property="SD_ID" column="id"/>
+		 	<result property="SDNAME" column="name"/>
+		 	<result property="S_ID" column="sId"/>
+		 	<result property="STATUS" column="status"/>
+		</collection>
+		
+	</resultMap>
+	<!-- 查询所有用户 -->
+	<select id="findAllSysuser" parameterType="PageUtil" resultType="list" resultMap="sysuser_result">
+		select 
+			s.SU_ID as uid ,s.SYNAME as uname, s.TELEPHONE as telephone, s.MAILBOX as mailbox,
+		s.ROLE as role,s.STATUS as status,
+			d.SD_ID as did , d.SDNAME as dname , d.S_ID as sid ,d.STATUS as dstatus
+		 from sys_users s
+		 	left join sys_user_department ud
+		 	on s.SU_ID = ud.us_id
+		 	left join sys_department d
+		 	on ud.de_id = d.SD_ID
+		 	limit #{start} , #{end}
+		 	
+	</select>
+	<!-- 统计记录条数 -->
+	<select id="countUser" resultType="list" resultMap="sysuser_result">
+		select s.id , s.loginname , s.realname from sysuser s
+	</select>
+	<!--&lt;!&ndash; 根据ID锁定用户 &ndash;&gt;
+	<update id="userDeleteById" parameterType="int">
+		update sysuser set isdelete = 1 where id  = #{id}
+	</update>
+	&lt;!&ndash; 根据ID解锁用户 &ndash;&gt;
+	<update id="userClearById" parameterType="int">
+		update sysuser set isdelete = 0 where id  = #{id}
+	</update>
+	&lt;!&ndash; 查询所有角色 &ndash;&gt;
+	<select id="findAllRole" resultType="list" resultMap="role_result">
+		select s.id as rid,s.name as rName ,r.id as rroleId ,r.name as rrName
+				from sysrole s
+				left join sysrole r
+				on s.roleId = r.id
+	</select>-->
+	<!-- 添加用户 -->
+	<insert id="sysuserAdd" parameterType="sysuser" useGeneratedKeys="true" keyProperty="id">
+		insert into sys_user(SYNAME,TELEPHONE,MAILBOX,ROLE,STATUS)
+					values(#{name},#{telephone},#{mailbox},#{role},#{status})
+	</insert>
+	<!-- 添加用户部门 -->
+	<insert id="userRoleAdd" parameterType="userRole">
+		insert into sys_user_department(us_id,de_id)
+					values(#{sysuser.id},#{department.id})
+	</insert>
+	<!-- 根据ID查询用户 -->
+	<!--<select id="findById" parameterType="int" resultMap="sysuser_result">
+		select 
+			s.id as uid ,s.loginname as uloginName, s.realname as urealName, s.isdelete as uisDelete,
+			r.id as rid , r.name as rName , sr.id as rroleId ,sr.name as rrName
+		 from sysuser s 
+		 	left join user_role ur 
+		 	on s.id = ur.userid
+		 	left join sysrole r 
+		 	on ur.roleid = r.id
+		 	left join sysrole sr 
+		 	on sr.id = r.roleId
+		 	where s.id = #{id}
+	</select>
+	&lt;!&ndash; 根据用户ID查询该用户的所有角色 &ndash;&gt;
+	<select id="findRoleByUid" parameterType="int" resultMap="role_result">
+		select s.id as rid,s.name as rName ,r.id as rroleId ,r.name as rrName
+				from sysrole s
+				left join sysrole r
+				on s.roleId = r.id
+				join user_role ur
+				on ur.roleId = s.id
+				where ur.userid = #{id}
+	</select>
+	&lt;!&ndash; 修改用户 &ndash;&gt;
+	<update id="updateUser" parameterType="sysuser">
+		update sysuser set loginname=#{loginname} ,realname = #{realname} where id = #{id}
+	</update>
+	&lt;!&ndash; 修改用户角色(删除角色) &ndash;&gt;
+	<delete id="deleteRoles" parameterType="int">
+		delete from user_role where userid = #{id} 
+	</delete>
+	&lt;!&ndash; 修改用户角色(添加角色) &ndash;&gt;
+	<insert id="AddUserRole" parameterType="userRoleId">
+		insert into user_role(userId,roleId) values(#{sysuser.id},#{sysrole.id});
+	</insert>
+	-->
+</mapper>
+
