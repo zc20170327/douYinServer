@@ -9,10 +9,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 @Configuration
 @ComponentScan(basePackages = {"com.gitee.sunchenbin.mybatis.actable.manager.*"})
-public class MybatisTableConfig {
+public class MybatisTableConfig extends WebMvcConfigurationSupport {
 
     @Value("${spring.datasource.driver-class-name}")
     private String driver;
@@ -63,6 +66,22 @@ public class MybatisTableConfig {
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml"));
         sqlSessionFactoryBean.setTypeAliasesPackage("com.zhdtedu.riverchiefs.bean.*");
         return sqlSessionFactoryBean;
+    }
+
+    @Override
+    @Bean
+    public RequestMappingHandlerMapping requestMappingHandlerMapping() {
+        RequestMappingHandlerMapping handlerMapping = new CustomRequestMappingHandlerMapping();
+        handlerMapping.setOrder(0);
+        handlerMapping.setInterceptors(getInterceptors());
+        return handlerMapping;
+    }
+
+    public void addResourceHandlers(ResourceHandlerRegistry registry)
+    {
+        //enabling swagger-ui part for visual documentation
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
 }
