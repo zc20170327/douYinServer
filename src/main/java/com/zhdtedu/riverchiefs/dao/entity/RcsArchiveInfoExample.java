@@ -5,11 +5,13 @@ import java.util.Date;
 import java.util.List;
 
 public class RcsArchiveInfoExample {
+
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
+
 
     public RcsArchiveInfoExample() {
         oredCriteria = new ArrayList<Criteria>();

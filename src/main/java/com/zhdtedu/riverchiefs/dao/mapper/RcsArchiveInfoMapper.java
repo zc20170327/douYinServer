@@ -3,9 +3,14 @@ package com.zhdtedu.riverchiefs.dao.mapper;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfoExample;
 import java.util.List;
+
+import com.zhdtedu.util.SearchCondition;
 import org.apache.ibatis.annotations.Param;
 
 public interface RcsArchiveInfoMapper {
+
+    List<RcsArchiveInfo> pageQuery(SearchCondition sc);
+
     int countByExample(RcsArchiveInfoExample example);
 
     int deleteByExample(RcsArchiveInfoExample example);

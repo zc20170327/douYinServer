@@ -66,4 +66,28 @@ public class RcsArchiveInfo {
     @Column(name="EXT1",type =MySqlTypeConstant.VARCHAR,length =50)
     private String ext1;
 
+    @Override
+    public String toString() {
+        return "RcsArchiveInfo{" +
+                "id=" + id +
+                ", archNum='" + archNum + '\'' +
+                ", questionFrom='" + questionFrom + '\'' +
+                ", questionType='" + questionType + '\'' +
+                ", questionAddr='" + questionAddr + '\'' +
+                ", mapLevel='" + mapLevel + '\'' +
+                ", mapAddr='" + mapAddr + '\'' +
+                ", suosLiuy='" + suosLiuy + '\'' +
+                ", callPhone='" + callPhone + '\'' +
+                ", hdzNum='" + hdzNum + '\'' +
+                ", hdzRealname='" + hdzRealname + '\'' +
+                ", hdzPhone='" + hdzPhone + '\'' +
+                ", jbrRealname='" + jbrRealname + '\'' +
+                ", description='" + description + '\'' +
+                ", report_id='" + report_id + '\'' +
+                ", reportRealname='" + reportRealname + '\'' +
+                ", reportDate='" + reportDate + '\'' +
+                ", status='" + status + '\'' +
+                ", ext1='" + ext1 + '\'' +
+                '}';
+    }
 }

@@ -430,4 +430,16 @@
       EXT1 = #{ext1,jdbcType=VARCHAR}
     where ID_ = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="pageQuery" resultMap="BaseResultMap" parameterType="com.zhdtedu.util.SearchCondition">
+      select
+      <include refid="Base_Column_List" />
+      from rcs_archive_info
+      <if test="orderBy!= ''" >
+        order by ${orderBy}
+      </if><!--${startNo},${pageSize} -->
+      <if test="pageSize!=null">
+        limit ${startNo},${pageSize}
+      </if>
+  </select>
 </mapper>
