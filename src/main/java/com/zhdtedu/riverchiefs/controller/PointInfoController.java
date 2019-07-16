@@ -30,9 +30,7 @@ public class PointInfoController {
      * 获取监测点列表
      */
 
-
     @ApiOperation(value = "获取监测点数据列表", notes = "根据编码和名称，索引页pageIndex获取数据列表")
-
     @GetMapping("/points")
     public RcsResult getPointInfoList(@ApiParam( name="code", value="编码") @RequestParam(value="code",required = false) Long code,
                                   @ApiParam( name="name", value="名称") @RequestParam(value="name",required = false) String name,

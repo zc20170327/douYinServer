@@ -1,4 +1,4 @@
-/*
+
 package com.zhdtedu.riverchiefs.bean;
 
 
@@ -36,4 +36,4 @@ public class RcsArchiveFlowVo implements Serializable {
     @ApiModelProperty(value = "部门名")
     private String deptName;
 }
-*/
+
