@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhdtedu.riverchiefs.dao.mapper.RcsArchiveFlowVoMapper" >
+
+    <resultMap id="QueryRcsArchiveFlowVo" type="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
+        <id column="F.ID_" property="id" ></id>
+        <result column="ARCH_NUM_" property="archNum"></result>
+        <result column="QUESTION_FROM_" property="questionFrom"></result>
+        <result column="QUESTION_TYPE_" property="questionType"></result>
+        <result column="SUOS_LIUY_" property="suosLiuy"></result>
+        <result column="STATUS_" property="status"></result>
+        <result column="OPER_TIME_" property="operTime"></result>
+    </resultMap>
+    <!-- 定义商品查询的sql片段，就是商品查询条件 -->
+<!--    <sql id="query_items_where">
+        &lt;!&ndash; 使用动态sql，通过if判断，满足条件进行sql拼接 &ndash;&gt;
+        &lt;!&ndash; 商品查询条件通过ItemsQueryVo包装对象 中itemsCustom属性传递 &ndash;&gt;
+        <if test="itemsCustom!=null">
+            <if test="itemsCustom.name!=null and itemsCustom.name!=''">
+                items.name LIKE '%${itemsCustom.name}%'
+            </if>
+        </if>
+    </sql>-->
+    <select id="findRcsArchiveFlowVoList" resultMap="QueryRcsArchiveFlowVo" >
+        SELECT F.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
+        FROM rcs_archive_flow f,
+        rcs_archive_info i
+        <where>
+        f.ID_ = i.ID_
+       <!-- <include refid="query_items_where"></include>-->
+        </where>
+    </select>
+
+</mapper>
