@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhdtedu.riverchiefs.dao.mapper.PointDataMapper" >
+  <resultMap id="BaseResultMap" type="com.zhdtedu.riverchiefs.dao.entity.PointData" >
+    <id column="ID_" property="id" jdbcType="INTEGER" />
+    <result column="NAME_" property="name" jdbcType="INTEGER" />
+    <result column="QUOTA_" property="quota" jdbcType="VARCHAR" />
+    <result column="TIME_" property="time" jdbcType="VARCHAR" />
+    <result column="MONITOR_VAULE_" property="monitor_value" jdbcType="INTEGER" />
+    <result column="STANDARD_VAlUE_" property="standard_value" jdbcType="INTEGER" />
+    <result column="UNIT_" property="unit" jdbcType="VARCHAR" />
+    <result column="IS_QUALIFIED_" property="is_qualified" jdbcType="VARCHAR" />
+    <result column="MULTIPLE_" property="multiple" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="getPointData" resultMap="BaseResultMap"  >
+    select ID_ ,NAME_ ,QUOTA_,TIME_,MONITOR_VAULE_,STANDARD_VAlUE_,,UNIT_,IS_QUALIFIED_ ,MULTIPLE_ from  rcs_point_data
+  </select>
+</mapper>

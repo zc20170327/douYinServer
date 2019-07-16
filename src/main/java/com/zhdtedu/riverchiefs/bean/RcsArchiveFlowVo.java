@@ -1,3 +1,4 @@
+/*
 package com.zhdtedu.riverchiefs.bean;
 
 
@@ -20,3 +21,4 @@ public class RcsArchiveFlowVo implements Serializable {
     //部门信息
     private Department department;
 }
+*/

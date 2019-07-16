@@ -3,6 +3,7 @@ package com.zhdtedu.riverchiefs.controller;
 import com.sun.swing.internal.plaf.basic.resources.basic_es;
 import com.zhdtedu.riverchiefs.dao.entity.JsonResult;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
+import com.zhdtedu.riverchiefs.service.PointDataServiceImpl;
 import com.zhdtedu.riverchiefs.service.RcsArchiveInfoService;
 import io.swagger.annotations.*;
 import net.sf.json.JSON;
@@ -17,7 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/v1")
-public class RcsArchiveInfoController extends BaseController {
+public class RcsArchiveInfoController  {
 
         @Resource
         RcsArchiveInfoService rcsArchiveInfoService;
@@ -33,11 +34,12 @@ public class RcsArchiveInfoController extends BaseController {
         })
         @GetMapping(value = "/archive")
         public String pageQuery(){
-            List list = rcsArchiveInfoService.pageQuery(this.getSearchCondition());
+          /*  List list = rcsArchiveInfoService.pageQuery(this.getSearchCondition());
             Map<String,List> result = new HashMap<String,List>();
             result.put("data",list);
             System.out.println(result.toString());
-            return  result.toString();
+            return  result.toString();*/
+          return  " ";
         }
 
     @ApiOperation(value="新增案卷信息", notes="新增案卷信息",produces = "application/json")
