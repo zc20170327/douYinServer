@@ -1,8 +1,7 @@
-package com.zhdtedu.system.entity;
+package com.zhdtedu.system.dao.entity;
 
 //import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 //import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
-import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -16,30 +15,30 @@ import java.util.List;
 @Data
 public class Department {
     @Id
-    @Column(name = "SD_ID")
+    @Column(name = "DEPT_ID_")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long	id;
+    private int	id;
     //名称
-    @Column(name = "SDNAME",length = 111)
+    @Column(name = "DEPT_NAME_",length = 111)
     private String	name;
     //上级部门
-    @Column(name = "S_ID",length = 11)
-    private int	sId;
+    @Column(name = "PART_ID_",length = 11)
+    private int	partId;
     //是否启用 1代表启用 0代表不启用
-    @Column(name = "STATUS",length = 5)
+    @Column(name = "DEPT_STATUS_",length = 5)
     private Integer	status;
     //用户id
-    @Column(name = "U_id",length = 5)
-    private Integer	uId;
+    @Column(name = "USER_ID_",length = 5)
+    private Integer	userId;
     //多对多不维护的一方属性，只写mappedBy，值和维护方的属性值一致
    @ManyToMany(mappedBy="departments",fetch = FetchType.LAZY)
-    private List<SysUser> users;
+    private List<User> users;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -51,12 +50,12 @@ public class Department {
         this.name = name;
     }
 
-    public int getsId() {
-        return sId;
+    public int getPartId() {
+        return partId;
     }
 
-    public void setsId(int sId) {
-        this.sId = sId;
+    public void setPartId(int partId) {
+        this.partId = partId;
     }
 
     public Integer getStatus() {
@@ -67,19 +66,19 @@ public class Department {
         this.status = status;
     }
 
-    public Integer getuId() {
-        return uId;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setuId(Integer uId) {
-        this.uId = uId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public List<SysUser> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<SysUser> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 }
