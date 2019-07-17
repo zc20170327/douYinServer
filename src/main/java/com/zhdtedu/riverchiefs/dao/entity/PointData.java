@@ -1,9 +1,12 @@
 package com.zhdtedu.riverchiefs.dao.entity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -24,6 +27,9 @@ public class PointData {
     @Column(name="QUOTA_",type=MySqlTypeConstant.VARCHAR,length = 20)
     private String quota;//指标
 
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "检测时间")
     @Column(name="TIME_",type=MySqlTypeConstant.DATETIME)
     private Date time;//检测时间

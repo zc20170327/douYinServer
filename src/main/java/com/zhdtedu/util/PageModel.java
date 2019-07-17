@@ -56,7 +56,7 @@ public class PageModel {
 		}
 	}
 
-
+   public PageModel(){}
 	
 	public int getStartPage() {
 		return startPage;

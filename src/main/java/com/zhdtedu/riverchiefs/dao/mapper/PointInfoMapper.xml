@@ -139,9 +139,7 @@
   </delete>
   <delete id="deleteByExample" parameterType="com.zhdtedu.riverchiefs.dao.entity.PointInfoExample" >
     delete from rcs_point_info
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
+    #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.zhdtedu.riverchiefs.dao.entity.PointInfo" >
     insert into rcs_point_info (ID_, CODE_, NAME_, 
