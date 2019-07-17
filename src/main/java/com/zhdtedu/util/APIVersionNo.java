@@ -1,5 +1,8 @@
 package com.zhdtedu.util;
 
+/**
+ * API版本常量
+ */
 public class APIVersionNo {
 
     public final  static  int  VERSIONCONSTANT_ONE = 1;

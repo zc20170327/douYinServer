@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
  * api条件处理类
  * 自定义条件筛选器，让SpringMVC在原有逻辑的基本上
  * 添加一个版本号匹配的规则
+ *
  */
 public class ApiVesrsionCondition implements RequestCondition<ApiVesrsionCondition> {
     // 路径中版本的前缀， 这里用 /v[1-9]/的形式

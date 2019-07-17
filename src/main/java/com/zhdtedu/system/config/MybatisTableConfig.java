@@ -68,6 +68,10 @@ public class MybatisTableConfig extends WebMvcConfigurationSupport {
         return sqlSessionFactoryBean;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     @Bean
     public RequestMappingHandlerMapping requestMappingHandlerMapping() {

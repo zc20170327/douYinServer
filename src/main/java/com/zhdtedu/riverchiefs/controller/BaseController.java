@@ -45,6 +45,7 @@ public class BaseController {
             }
         }
         sc.setOrderBy(sb.toString());
+        sc.getParameter().put("orderBy",sb.toString());
         return sc;
     }
 
