@@ -6,8 +6,10 @@ import com.zhdtedu.riverchiefs.dao.entity.JsonResult;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
 import com.zhdtedu.riverchiefs.service.RcsArchiveInfoService;
 import com.zhdtedu.util.APIVersionNo;
+import com.zhdtedu.util.ReturnMsg;
 import com.zhdtedu.util.SearchCondition;
 import io.swagger.annotations.*;
+import net.bytebuddy.asm.Advice;
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -38,17 +40,20 @@ public class RcsArchiveInfoController extends BaseController {
         @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
         @GetMapping(value = "/archive",produces = "application/json;charset=utf-8")
         public String pageQuery(){
-            System.out.println("=========11111111======");
-            SearchCondition sc = this.getSearchCondition();
-            List list = rcsArchiveInfoService.pageQuery(sc);
-            Map<String,Object> result = new HashMap<String,Object>();
-            result.put("data",list);
-            result.put("pageTotal",sc.getPageTotal());
-            result.put("pageSize",sc.getPageSize());
-            result.put("pageNo",sc.getPageNo());
-            JSONObject json = new JSONObject();
-            json.putAll(result);
-            return  json.toString();
+            ReturnMsg msg = this.getReturnMsg();
+            try {
+                System.out.println("=========11111111======");
+                SearchCondition sc = this.getSearchCondition();
+                List list = rcsArchiveInfoService.pageQuery(sc);
+                msg.success();
+                msg.putRdata("list",list);
+                msg.setPageInfo(sc);
+                return  msg.toJSONString();
+            }catch (Exception e){
+                msg.exception(e);
+                return  msg.toJSONString();
+            }
+
         }
 
     @ApiOperation(value="获取案卷分页信息接口v2", notes="根据分页及其它条件获取用户详细信息v2",produces = "application/json;charset=utf-8")

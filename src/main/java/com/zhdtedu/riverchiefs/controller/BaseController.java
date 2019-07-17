@@ -1,5 +1,6 @@
 package com.zhdtedu.riverchiefs.controller;
 
+import com.zhdtedu.util.ReturnMsg;
 import com.zhdtedu.util.SearchCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -50,14 +51,13 @@ public class BaseController {
     }
 
 
-
 //    public ReqParam getReqParam(Map<String, Object> param){
 //        return new ReqParam(param);
 //    }
-//
-//    public ReturnMsg getReturnMsg() {
-//        return new ReturnMsg();
-//    }
+
+    public ReturnMsg getReturnMsg() {
+        return new ReturnMsg();
+    }
 
 
 }
