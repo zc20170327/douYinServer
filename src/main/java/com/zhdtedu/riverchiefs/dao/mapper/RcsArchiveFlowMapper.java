@@ -28,4 +28,5 @@ public interface RcsArchiveFlowMapper {
     int updateByPrimaryKeySelective(RcsArchiveFlow record);
 
     int updateByPrimaryKey(RcsArchiveFlow record);
+
 }

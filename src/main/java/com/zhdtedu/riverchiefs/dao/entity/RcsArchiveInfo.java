@@ -6,7 +6,6 @@ import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Data
 @Table(name="rcs_archive_info")
@@ -70,9 +69,15 @@ public class RcsArchiveInfo {
     @Column(name="EXT1_",type =MySqlTypeConstant.VARCHAR,length =50)
     private String ext1;
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
+    public String getStatus() {
+        return status;
+    }
 
-   /* @Override
+    /* @Override
     public String toString() {
         return "RcsArchiveInfo{" +
                 "id=" + id +

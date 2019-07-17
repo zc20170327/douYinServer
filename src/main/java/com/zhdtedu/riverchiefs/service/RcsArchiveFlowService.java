@@ -13,13 +13,15 @@ public interface RcsArchiveFlowService {
     public List<RcsArchiveFlow> getRcsArchiveFlowList();
 
     /**
-     * 插入操作处理
+     * 插入历史操作记录
      */
     public void insertRcsArchiveFlow(RcsArchiveFlow rcsArchiveFlow);
 
     /**
-     * 修改案卷登记状态
-     * @param status
+     * 根据id查询案卷登记信息
+     * @param id
+     * @return
      */
-    public void updateRcsArchiveInfoStatus(RcsArchiveInfo rcsArchiveInfo);
+    public RcsArchiveInfo queryRcsArchiveInfoById(Integer id);
+
 }

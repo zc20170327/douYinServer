@@ -4,8 +4,6 @@ import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Date;
 
@@ -38,16 +36,96 @@ public class RcsArchiveFlow {
 
     //时限
     @Column(name = "TIMES_",type = MySqlTypeConstant.INT,length = 10)
-    @Getter
-    @Setter
     private Integer times;
 
     //时限单位
     @Column(name = "UNIT_",type = MySqlTypeConstant.VARCHAR,length = 10)
     private String unit;
 
-    //处理部门
+    //处理部门id
     @Column(name = "DEPT_ID_",type = MySqlTypeConstant.VARCHAR,length = 20)
     private String deptId;
 
+    public RcsArchiveFlow() {
+    }
+
+    public RcsArchiveFlow(String operation, String operator, Integer times, String unit, String deptId) {
+        this.operation = operation;
+        this.operator = operator;
+        this.times = times;
+        this.unit = unit;
+        this.deptId = deptId;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setOperNum(Integer operNum) {
+        this.operNum = operNum;
+    }
+
+    public void setOpinion(String opinion) {
+        this.opinion = opinion;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
+
+    public void setOperTime(Date operTime) {
+        this.operTime = operTime;
+    }
+
+    public void setTimes(Integer times) {
+        this.times = times;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public void setDeptId(String deptId) {
+        this.deptId = deptId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Integer getOperNum() {
+        return operNum;
+    }
+
+    public String getOpinion() {
+        return opinion;
+    }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public Date getOperTime() {
+        return operTime;
+    }
+
+    public Integer getTimes() {
+        return times;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public String getDeptId() {
+        return deptId;
+    }
 }

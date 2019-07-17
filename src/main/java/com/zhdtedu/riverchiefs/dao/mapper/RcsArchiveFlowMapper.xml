@@ -272,4 +272,5 @@
       DEPT_ID_ = #{deptId,jdbcType=VARCHAR}
     where ID_ = #{id,jdbcType=BIGINT}
   </update>
+
 </mapper>
