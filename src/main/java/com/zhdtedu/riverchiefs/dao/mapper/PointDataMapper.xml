@@ -17,11 +17,11 @@
     select ID_ ,NAME_ ,QUOTA_,TIME_,MONITOR_VAULE_,STANDARD_VAlUE_,UNIT_,IS_QUALIFIED_ ,MULTIPLE_ from  rcs_point_data
   </select>
   <insert id="insert" parameterType="com.zhdtedu.riverchiefs.dao.entity.PointData">
-    insert into rcs_point_data (ID_, NAME_, QUOTA_,
+    insert into rcs_point_data ( NAME_, QUOTA_,
       TIME_, MONITOR_VAULE_, STANDARD_VAlUE_,
       UNIT_, IS_QUALIFIED_, MULTIPLE_
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{quota,jdbcType=VARCHAR},
+    values ( #{name,jdbcType=VARCHAR}, #{quota,jdbcType=VARCHAR},
       #{time,jdbcType=TIMESTAMP}, #{monitor_value,jdbcType=INTEGER}, #{standard_value,jdbcType=INTEGER},
       #{unit,jdbcType=VARCHAR}, #{is_qualified,jdbcType=VARCHAR}, #{multiple,jdbcType=INTEGER}
       )
@@ -43,4 +43,35 @@
       MULTIPLE_ = #{multiple,jdbcType=INTEGER}
     where ID_ = #{id,jdbcType=BIGINT}
   </update>
+
+  <!-- 获得总记录数 -->
+
+  <select id="getTotalCount" resultType="int"   >
+    select count(*) from  rcs_point_data
+    where 1=1
+    <if test="name != null">
+      and NAME_=#{name}
+    </if>
+    <if test="start_time != null">
+      and TIME_ &gt; #{start_time}
+    </if>
+    <if test="end_time != null">
+      and TIME_ &lt;#{end_time}
+    </if>
+  </select>
+  <!--根据名称和开始时间，结束时间获取监测点列表 " -->
+  <select id="getLists" resultMap="BaseResultMap"   >
+    select ID_ ,NAME_ ,QUOTA_,TIME_,MONITOR_VAULE_,STANDARD_VAlUE_,UNIT_,IS_QUALIFIED_ ,MULTIPLE_ from rcs_point_data
+    where 1=1
+    <if test="name != null">
+      and NAME_=#{name}
+    </if>
+    <if test="start_time != null">
+      and TIME_ &gt; #{start_time}
+    </if>
+    <if test="end_time != null">
+      and TIME_ &lt;#{end_time}
+    </if>
+    limit ${(pageIndex-1)*pageSize},${pageSize}
+  </select>
 </mapper>

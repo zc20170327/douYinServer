@@ -2,9 +2,12 @@ package com.zhdtedu.riverchiefs.service;
 
 import com.zhdtedu.riverchiefs.dao.entity.PointData;
 import com.zhdtedu.riverchiefs.dao.mapper.PointDataMapper;
+import com.zhdtedu.util.PageModel;
 import com.zhdtedu.util.RcsResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PointDataServiceImpl implements  PointDataService{
@@ -54,6 +57,37 @@ public class PointDataServiceImpl implements  PointDataService{
             }
             return RcsResult.ok();
 
+    }
+
+    @Override
+    public PageModel getPointDataPages(String name, String start_time, String end_time, String  pageIndex, int pageSize) {
+        int counts=0;
+        List<PointData> pointDataLists=null;
+        int  currentPageNo=0;
+        if(pageIndex != null){
+            try{
+                currentPageNo = Integer.valueOf(pageIndex);
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+            }
+        }
+        //获取当前条件下的总条数
+        try {
+            counts=pointDataMapper.getTotalCount(name,start_time,end_time);
+        }catch (Exception e){
+            e.printStackTrace();
+            }
+        //计算当前页，结束页
+        PageModel pageModel=  new PageModel(currentPageNo,counts,pageSize);
+        //获取当前页的数据
+        try {
+            pointDataLists= pointDataMapper.getLists(name,start_time,end_time,currentPageNo,pageSize);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        pageModel.setList(pointDataLists);
+        return  pageModel;
     }
 
 
