@@ -38,10 +38,10 @@ public class BaseController {
             if(key.startsWith("order")){
                 sb.append(request.getParameter(key));
             }
-            if(key.startsWith("page_number")){
+            if(key.startsWith("page_no")){
                 sc.setPageNo(Integer.parseInt(request.getParameter(key)));
             }
-            if(key.startsWith("page_length")){
+            if(key.startsWith("page_size")){
                 sc.setPageSize(Integer.parseInt(request.getParameter(key)));
             }
         }
