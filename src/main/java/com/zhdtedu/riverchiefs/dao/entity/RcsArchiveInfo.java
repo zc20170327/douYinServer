@@ -6,7 +6,6 @@ import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
 @Data
 @Table(name="rcs_archive_info")
 public class RcsArchiveInfo {
@@ -55,7 +54,7 @@ public class RcsArchiveInfo {
     private String description;
 
     @Column(name="REPORT_ID_",type =MySqlTypeConstant.INT,length=11)
-    private String report_id;
+    private String reportId;
 
     @Column(name="REPORT_REALNAME_",type =MySqlTypeConstant.VARCHAR,length = 128)
     private String reportRealname;
@@ -77,6 +76,13 @@ public class RcsArchiveInfo {
         return status;
     }
 
+    public void setArchNum(String archNum) {
+        this.archNum = archNum;
+    }
+
+    public String getArchNum() {
+        return archNum;
+    }
     /* @Override
     public String toString() {
         return "RcsArchiveInfo{" +
