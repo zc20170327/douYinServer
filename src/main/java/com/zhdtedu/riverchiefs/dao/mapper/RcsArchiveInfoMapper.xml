@@ -100,7 +100,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from rcs_archive_info
     where ID_ = #{id,jdbcType=INTEGER}
@@ -323,24 +323,24 @@
   <update id="updateByExample" parameterType="map" >
     update rcs_archive_info
     set ID_ = #{record.id,jdbcType=INTEGER},
-      ARCH_NUM_ = #{record.archNum,jdbcType=VARCHAR},
-      QUESTION_FROM_ = #{record.questionFrom,jdbcType=VARCHAR},
-      QUESTION_TYPE_ = #{record.questionType,jdbcType=VARCHAR},
-      QUESTION_ADDR_ = #{record.questionAddr,jdbcType=VARCHAR},
-      MAP_LEVEL_ = #{record.mapLevel,jdbcType=VARCHAR},
-      MAP_ADDR_ = #{record.mapAddr,jdbcType=VARCHAR},
-      SUOS_LIUY_ = #{record.suosLiuy,jdbcType=VARCHAR},
-      CALL_PHONE_ = #{record.callPhone,jdbcType=VARCHAR},
-      HDZ_NUM_ = #{record.hdzNum,jdbcType=VARCHAR},
-      HDZ_REALNAME_ = #{record.hdzRealname,jdbcType=VARCHAR},
-      HDZ_PHONE_ = #{record.hdzPhone,jdbcType=VARCHAR},
-      JBR_REALNAME_ = #{record.jbrRealname,jdbcType=VARCHAR},
-      DESCRIPTION_ = #{record.description,jdbcType=VARCHAR},
-      REPORT_ID_ = #{record.reportId,jdbcType=INTEGER},
-      REPORT_REALNAME_ = #{record.reportRealname,jdbcType=VARCHAR},
-      REPORT_DATE_ = #{record.reportDate,jdbcType=TIMESTAMP},
-      STATUS_ = #{record.status,jdbcType=VARCHAR},
-      EXT1_ = #{record.ext1,jdbcType=VARCHAR}
+    ARCH_NUM_ = #{record.archNum,jdbcType=VARCHAR},
+    QUESTION_FROM_ = #{record.questionFrom,jdbcType=VARCHAR},
+    QUESTION_TYPE_ = #{record.questionType,jdbcType=VARCHAR},
+    QUESTION_ADDR_ = #{record.questionAddr,jdbcType=VARCHAR},
+    MAP_LEVEL_ = #{record.mapLevel,jdbcType=VARCHAR},
+    MAP_ADDR_ = #{record.mapAddr,jdbcType=VARCHAR},
+    SUOS_LIUY_ = #{record.suosLiuy,jdbcType=VARCHAR},
+    CALL_PHONE_ = #{record.callPhone,jdbcType=VARCHAR},
+    HDZ_NUM_ = #{record.hdzNum,jdbcType=VARCHAR},
+    HDZ_REALNAME_ = #{record.hdzRealname,jdbcType=VARCHAR},
+    HDZ_PHONE_ = #{record.hdzPhone,jdbcType=VARCHAR},
+    JBR_REALNAME_ = #{record.jbrRealname,jdbcType=VARCHAR},
+    DESCRIPTION_ = #{record.description,jdbcType=VARCHAR},
+    REPORT_ID_ = #{record.reportId,jdbcType=INTEGER},
+    REPORT_REALNAME_ = #{record.reportRealname,jdbcType=VARCHAR},
+    REPORT_DATE_ = #{record.reportDate,jdbcType=TIMESTAMP},
+    STATUS_ = #{record.status,jdbcType=VARCHAR},
+    EXT1_ = #{record.ext1,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -429,14 +429,14 @@
   </update>
 
   <select id="pageQuery" resultMap="BaseResultMap" parameterType="java.util.Map">
-      select
-      <include refid="Base_Column_List" />
-      from rcs_archive_info
-      <if test="orderBy!=null" >
-            order by  #{orderBy}
-      </if><!-- #{sort}  #{order}-->
-      <if test="pageSize!=null">
-        limit #{startNo},#{pageSize}
-      </if>
+    select
+    <include refid="Base_Column_List" />
+    from rcs_archive_info
+    <if test="orderBy!=null" >
+      order by  #{orderBy}
+    </if><!-- #{sort}  #{order}-->
+    <if test="pageSize!=null">
+      limit #{startNo},#{pageSize}
+    </if>
   </select>
 </mapper>

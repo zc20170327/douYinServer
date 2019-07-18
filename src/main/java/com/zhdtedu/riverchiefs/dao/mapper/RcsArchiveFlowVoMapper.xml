@@ -1,264 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.zhdtedu.riverchiefs.dao.mapper.RcsArchiveFlowVoMapper" >
-  <resultMap id="BaseResultMap" type="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
-    <id column="ID_" property="id" jdbcType="INTEGER" />
-    <result column="ARCH_NUM_" property="archNum" jdbcType="VARCHAR" />
-    <result column="QUESTION_FROM_" property="questionFrom" jdbcType="VARCHAR" />
-    <result column="QUESTION_TYPE_" property="questionType" jdbcType="VARCHAR" />
-    <result column="SUOS_LIUY_" property="suosLiuy" jdbcType="VARCHAR" />
-    <result column="STATUS_" property="status" jdbcType="VARCHAR" />
-    <result column="OPER_TIME_" property="operTime" jdbcType="DATE" />
-    <result column="DEPT_NAME_" property="deptName" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List" >
-    ID_, ARCH_NUM_, QUESTION_FROM_, QUESTION_TYPE_, SUOS_LIUY_, STATUS_, OPER_TIME_, 
-    DEPT_NAME_
-  </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVoExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from rcs_archive_flow_vo
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from rcs_archive_flow_vo
-    where ID_ = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from rcs_archive_flow_vo
-    where ID_ = #{id,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVoExample" >
-    delete from rcs_archive_flow_vo
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
-    insert into rcs_archive_flow_vo (ID_, ARCH_NUM_, QUESTION_FROM_, 
-      QUESTION_TYPE_, SUOS_LIUY_, STATUS_, 
-      OPER_TIME_, DEPT_NAME_)
-    values (#{id,jdbcType=INTEGER}, #{archNum,jdbcType=VARCHAR}, #{questionFrom,jdbcType=VARCHAR}, 
-      #{questionType,jdbcType=VARCHAR}, #{suosLiuy,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
-      #{operTime,jdbcType=DATE}, #{deptName,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
-    insert into rcs_archive_flow_vo
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID_,
-      </if>
-      <if test="archNum != null" >
-        ARCH_NUM_,
-      </if>
-      <if test="questionFrom != null" >
-        QUESTION_FROM_,
-      </if>
-      <if test="questionType != null" >
-        QUESTION_TYPE_,
-      </if>
-      <if test="suosLiuy != null" >
-        SUOS_LIUY_,
-      </if>
-      <if test="status != null" >
-        STATUS_,
-      </if>
-      <if test="operTime != null" >
-        OPER_TIME_,
-      </if>
-      <if test="deptName != null" >
-        DEPT_NAME_,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="archNum != null" >
-        #{archNum,jdbcType=VARCHAR},
-      </if>
-      <if test="questionFrom != null" >
-        #{questionFrom,jdbcType=VARCHAR},
-      </if>
-      <if test="questionType != null" >
-        #{questionType,jdbcType=VARCHAR},
-      </if>
-      <if test="suosLiuy != null" >
-        #{suosLiuy,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="operTime != null" >
-        #{operTime,jdbcType=DATE},
-      </if>
-      <if test="deptName != null" >
-        #{deptName,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVoExample" resultType="java.lang.Integer" >
-    select count(*) from rcs_archive_flow_vo
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update rcs_archive_flow_vo
-    <set >
-      <if test="record.id != null" >
-        ID_ = #{record.id,jdbcType=INTEGER},
-      </if>
-      <if test="record.archNum != null" >
-        ARCH_NUM_ = #{record.archNum,jdbcType=VARCHAR},
-      </if>
-      <if test="record.questionFrom != null" >
-        QUESTION_FROM_ = #{record.questionFrom,jdbcType=VARCHAR},
-      </if>
-      <if test="record.questionType != null" >
-        QUESTION_TYPE_ = #{record.questionType,jdbcType=VARCHAR},
-      </if>
-      <if test="record.suosLiuy != null" >
-        SUOS_LIUY_ = #{record.suosLiuy,jdbcType=VARCHAR},
-      </if>
-      <if test="record.status != null" >
-        STATUS_ = #{record.status,jdbcType=VARCHAR},
-      </if>
-      <if test="record.operTime != null" >
-        OPER_TIME_ = #{record.operTime,jdbcType=DATE},
-      </if>
-      <if test="record.deptName != null" >
-        DEPT_NAME_ = #{record.deptName,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
-    update rcs_archive_flow_vo
-    set ID_ = #{record.id,jdbcType=INTEGER},
-      ARCH_NUM_ = #{record.archNum,jdbcType=VARCHAR},
-      QUESTION_FROM_ = #{record.questionFrom,jdbcType=VARCHAR},
-      QUESTION_TYPE_ = #{record.questionType,jdbcType=VARCHAR},
-      SUOS_LIUY_ = #{record.suosLiuy,jdbcType=VARCHAR},
-      STATUS_ = #{record.status,jdbcType=VARCHAR},
-      OPER_TIME_ = #{record.operTime,jdbcType=DATE},
-      DEPT_NAME_ = #{record.deptName,jdbcType=VARCHAR}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
-    update rcs_archive_flow_vo
-    <set >
-      <if test="archNum != null" >
-        ARCH_NUM_ = #{archNum,jdbcType=VARCHAR},
-      </if>
-      <if test="questionFrom != null" >
-        QUESTION_FROM_ = #{questionFrom,jdbcType=VARCHAR},
-      </if>
-      <if test="questionType != null" >
-        QUESTION_TYPE_ = #{questionType,jdbcType=VARCHAR},
-      </if>
-      <if test="suosLiuy != null" >
-        SUOS_LIUY_ = #{suosLiuy,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        STATUS_ = #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="operTime != null" >
-        OPER_TIME_ = #{operTime,jdbcType=DATE},
-      </if>
-      <if test="deptName != null" >
-        DEPT_NAME_ = #{deptName,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where ID_ = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
-    update rcs_archive_flow_vo
-    set ARCH_NUM_ = #{archNum,jdbcType=VARCHAR},
-      QUESTION_FROM_ = #{questionFrom,jdbcType=VARCHAR},
-      QUESTION_TYPE_ = #{questionType,jdbcType=VARCHAR},
-      SUOS_LIUY_ = #{suosLiuy,jdbcType=VARCHAR},
-      STATUS_ = #{status,jdbcType=VARCHAR},
-      OPER_TIME_ = #{operTime,jdbcType=DATE},
-      DEPT_NAME_ = #{deptName,jdbcType=VARCHAR}
-    where ID_ = #{id,jdbcType=INTEGER}
-  </update>
+
   
-      <resultMap id="QueryRcsArchiveFlowVo" type="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVoExample" >
-        <id column="F.ID_" property="id" ></id>
+      <resultMap id="QueryRcsArchiveFlowVo" type="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
+        <id column="i.ID_" property="id" ></id>
         <result column="ARCH_NUM_" property="archNum"></result>
         <result column="QUESTION_FROM_" property="questionFrom"></result>
         <result column="QUESTION_TYPE_" property="questionType"></result>
@@ -266,45 +12,50 @@
         <result column="STATUS_" property="status"></result>
         <result column="OPER_TIME_" property="operTime"></result>
     </resultMap>
-    <sql id="Example_Where_Clause1" >
-            <foreach collection="oredCriteria" item="criteria" separator="or" >
-                <if test="criteria.valid" >
-                    <trim prefix="(" suffix=")" prefixOverrides="and" >
-                        <foreach collection="criteria.criteria" item="criterion" >
-                            <choose >
-                                <when test="criterion.noValue" >
-                                    and ${criterion.condition}
-                                </when>
-                                <when test="criterion.singleValue" >
-                                    and ${criterion.condition} #{criterion.value}
-                                </when>
-                                <when test="criterion.betweenValue" >
-                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                                </when>
-                                <when test="criterion.listValue" >
-                                    and ${criterion.condition}
-                                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                                        #{listItem}
-                                    </foreach>
-                                </when>
-                            </choose>
-                        </foreach>
-                    </trim>
-                </if>
-            </foreach>
-    </sql>
-    <select id="selectRcsArchiveFlowVoByExample" resultMap="QueryRcsArchiveFlowVo" resultType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVoExample">
-        SELECT F.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
+    <select id="selectRcsArchiveFlowVoList" resultMap="QueryRcsArchiveFlowVo">
+      SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
+      FROM rcs_archive_flow f,
+      rcs_archive_info i
+       <where>
+            f.OPER_NUM_ = i.ARCH_NUM_ AND f.STATUS_ = i.STATUS_
+        </where>
+    </select>
+
+
+    <resultMap id="QueryRcsArchiveFlowVoByCondition" type="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
+        <id column="i.ID_" property="id" ></id>
+        <result column="ARCH_NUM_" property="archNum"></result>
+        <result column="QUESTION_FROM_" property="questionFrom"></result>
+        <result column="QUESTION_TYPE_" property="questionType"></result>
+        <result column="SUOS_LIUY_" property="suosLiuy"></result>
+        <result column="STATUS_" property="status"></result>
+        <result column="OPER_TIME_" property="operTime"></result>
+    </resultMap>
+    <select id="selectRcsArchiveFlowVoByCondition" resultMap="QueryRcsArchiveFlowVoByCondition"
+            parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo">
+        SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
         FROM rcs_archive_flow f,
         rcs_archive_info i
         <where>
-        f.ID_ = i.ID_
-<!--        <if test="_parameter != null" >-->
-            <include refid="Example_Where_Clause1" />
-<!--        </if>-->
-<!--        <if test="orderByClause != null" >-->
-<!--            order by ${orderByClause}-->
-<!--        </if>-->
+            f.OPER_NUM_ = i.ARCH_NUM_ AND f.STATUS_ = i.STATUS_
+            <if test="archNum!=null and archNum!=''">
+                and i.ARCH_NUM_ LIKE CONCAT('%',#{archNum},'%')
+            </if>
+            <if test="questionFrom!=null and questionFrom!=''">
+                and i.QUESTION_FROM_ = #{questionFrom}
+            </if>
+            <if test="questionType!=null and questionType!=''">
+                and i.QUESTION_TYPE_ LIKE CONCAT('%',#{questionType},'%')
+            </if>
+            <if test="suosLiuy!=null and suosLiuy!=''">
+                and i.SUOS_LIUY_ LIKE CONCAT('%',#{suosLiuy},'%')
+            </if>
+            <if test="status!=null and status!=''">
+                and i.STATUS_ = #{status}
+            </if>
+            <if test="deptName!=null and deptName!=''">
+                and i.DEPT_ID_ = #{deptName}
+            </if>
         </where>
     </select>
 </mapper>

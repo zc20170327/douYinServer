@@ -19,5 +19,5 @@ public interface RcsArchiveFlowVoService {
      * @param rcsArchiveFlowVo
      * @return
      */
-    public PageModel selectRcsArchiveFlowVoByExample(int currentPageNo, int pageSize, RcsArchiveFlowVo rcsArchiveFlowVo);
+    public PageModel selectRcsArchiveFlowVoByCondition(int currentPageNo, int pageSize, RcsArchiveFlowVo rcsArchiveFlowVo);
 }

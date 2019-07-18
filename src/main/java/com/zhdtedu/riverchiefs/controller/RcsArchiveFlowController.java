@@ -1,8 +1,10 @@
 package com.zhdtedu.riverchiefs.controller;
 
+import com.zhdtedu.riverchiefs.config.ApiVersion;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
 import com.zhdtedu.riverchiefs.service.RcsArchiveFlowService;
+import com.zhdtedu.util.APIVersionNo;
 import com.zhdtedu.util.RcsResult;
 import com.zhdtedu.util.SearchCondition;
 import io.swagger.annotations.*;
@@ -17,6 +19,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
+@RequestMapping(value="/{version}",name="版本号，如：v1,v2,v3")
 public class RcsArchiveFlowController extends BaseController{
     String status = "";
 
@@ -24,6 +27,7 @@ public class RcsArchiveFlowController extends BaseController{
     private RcsArchiveFlowService  rcsArchiveFlowService;
 
     @ApiOperation(value="获取所有历史处理记录", notes="获取所有历史处理记录")
+    @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
     @RequestMapping(value="/archive/flowList", method= RequestMethod.GET)
     public RcsResult getArchiveFlowList(){
         List<RcsArchiveFlow> rcsArchiveFlowList = rcsArchiveFlowService.getRcsArchiveFlowList();
@@ -40,6 +44,7 @@ public class RcsArchiveFlowController extends BaseController{
             @ApiImplicitParam(name = "opinion",value = "处理意见",paramType = "query",dataType = "String"),
             @ApiImplicitParam(name = "deptId",value = "处理部门",paramType = "query",dataType = "String")
     })
+    @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
     @RequestMapping(value="/archive/flowInsert/{id}", method= RequestMethod.GET)
     public void insertArchiveFlow(@PathVariable Integer id){
         //获取请求的数据
