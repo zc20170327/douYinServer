@@ -1,9 +1,8 @@
 package com.zhdtedu.riverchiefs.controller;
 
 import com.zhdtedu.riverchiefs.dao.entity.PointData;
-import com.zhdtedu.riverchiefs.dao.entity.PointInfo;
-import com.zhdtedu.riverchiefs.dao.mapper.PointDataMapper;
 import com.zhdtedu.riverchiefs.service.PointDataService;
+import com.zhdtedu.util.PageModel;
 import com.zhdtedu.util.RcsResult;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -60,6 +59,24 @@ public class PointDataController {
     @PutMapping("/pointsData/update")
     public RcsResult updatePointData(@RequestBody PointData pointData){
         return      pointDataService.updatePointData(pointData);
+    }
+
+    /**
+     * 获取监测点数据列表
+     */
+    int  currentPageNo=0;
+    int  pageSize=5;
+    int totalCount=0;
+    @ApiOperation(value = "获取监测点数据列表", notes = "根据索引页pageIndex获取数据列表")
+    @GetMapping("/pointDatas")
+    public RcsResult getBasinList(
+            @ApiParam( name="pageIndex", value="索引页") @RequestParam(value="pageIndex",required=true,defaultValue="1") String pageIndex,
+            @ApiParam( name="name", value="监测点名") @RequestParam(value="name",required=false) String name,
+            @ApiParam( name="start_time", value="开始时间") @RequestParam(value="start_time",required=false) String start_time,
+            @ApiParam( name="end_time", value="结束时间") @RequestParam(value="end_time",required=false) String end_time) {
+
+           PageModel PageModel=pointDataService.getPointDataPages(name ,start_time,end_time,pageIndex,4);
+           return  RcsResult.ok(PageModel);
     }
 
 }
