@@ -3,7 +3,6 @@ package com.zhdtedu.riverchiefs.controller;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
 import com.zhdtedu.riverchiefs.service.RcsArchiveFlowService;
-import com.zhdtedu.riverchiefs.service.RcsArchiveInfoService;
 import com.zhdtedu.util.RcsResult;
 import com.zhdtedu.util.SearchCondition;
 import io.swagger.annotations.*;
@@ -24,9 +23,6 @@ public class RcsArchiveFlowController extends BaseController{
     @Autowired
     private RcsArchiveFlowService  rcsArchiveFlowService;
 
-    @Autowired
-    private RcsArchiveInfoService rcsArchiveInfoService;
-
     @ApiOperation(value="获取所有历史处理记录", notes="获取所有历史处理记录")
     @RequestMapping(value="/archive/flowList", method= RequestMethod.GET)
     public RcsResult getArchiveFlowList(){
@@ -34,13 +30,13 @@ public class RcsArchiveFlowController extends BaseController{
         return RcsResult.ok(rcsArchiveFlowList);
     }
 
-    @ApiOperation(value="插入操作处理", notes="插入操作处理")
-    @ApiResponses(value = {@ApiResponse(code = 405,message = "无效的",response = Integer.class)})
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "times",value = "时限",paramType = "query",dataType = "int"),
-            @ApiImplicitParam(name = "unit",value = "时限单位",paramType = "query",dataType = "String"),
-            @ApiImplicitParam(name = "operator",value = "处理人",paramType = "query",dataType = "String"),
-            @ApiImplicitParam(name = "operation",value = "操作",paramType = "query",dataType = "String"),
+    @ApiOperation(value="插入历史记录", notes="插入历史记录")
+            @ApiResponses(value = {@ApiResponse(code = 405,message = "无效的",response = Integer.class)})
+            @ApiImplicitParams({
+                    @ApiImplicitParam(name = "times",value = "时限",paramType = "query",dataType = "int"),
+                    @ApiImplicitParam(name = "unit",value = "时限单位",paramType = "query",dataType = "String"),
+                    @ApiImplicitParam(name = "operator",value = "处理人",paramType = "query",dataType = "String"),
+                    @ApiImplicitParam(name = "operation",value = "操作",paramType = "query",dataType = "String"),
             @ApiImplicitParam(name = "opinion",value = "处理意见",paramType = "query",dataType = "String"),
             @ApiImplicitParam(name = "deptId",value = "处理部门",paramType = "query",dataType = "String")
     })
@@ -55,8 +51,8 @@ public class RcsArchiveFlowController extends BaseController{
                 sc.getValue("unit"),
                 sc.getValue("deptId"));
 
-        //将对象插入到历史记录表中
-        rcsArchiveFlowService.insertRcsArchiveFlow(rcsArchiveFlow);
+        //根据id查询案卷登记信息
+        RcsArchiveInfo rcsArchiveInfo = rcsArchiveFlowService.queryRcsArchiveInfoById(id);
 
         /**
          * 修改案卷登记表中的状态信息
@@ -94,30 +90,15 @@ public class RcsArchiveFlowController extends BaseController{
                 status = "未知状态";
         }
 
-//        if (operation == "申请核实") {
-//            status = "待核实";
-//        } else if (operation == "上报") {
-//            status = "上报";
-//        }else if (operation == "撤回") {
-//            status = "上报";
-//        } else if (operation == "派遣") {
-//            status = "派遣中";
-//        } else if (operation == "不立案") {
-//            status = "不立案";
-//        } else if (operation == "申请验收") {
-//            status = "待验收";
-//        } else if (operation == "结案") {
-//            status = "已结案";
-//        } else {
-//            status = "未知状态";
-//        }
-
-        //根据id查询案卷登记信息
-        RcsArchiveInfo rcsArchiveInfo = rcsArchiveFlowService.queryRcsArchiveInfoById(id);
-
+        //改变案卷历史记录表中的状态信息
+        rcsArchiveFlow.setStatus(status);
+        //插入案卷编号
+        rcsArchiveFlow.setOperNum(rcsArchiveInfo.getArchNum());
+        //将对象插入到历史记录表中
+        rcsArchiveFlowService.insertRcsArchiveFlow(rcsArchiveFlow);
         //改变案卷登记信息表中的状态信息
         rcsArchiveInfo.setStatus(status);
         System.out.println(rcsArchiveInfo);
-        rcsArchiveInfoService.modifyRcsArchiveInfo(rcsArchiveInfo);
+        rcsArchiveFlowService.modifyRcsArchiveInfo(rcsArchiveInfo);
     }
 }

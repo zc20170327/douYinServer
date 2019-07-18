@@ -37,4 +37,9 @@ public class RcsArchiveFlowServiceImpl implements RcsArchiveFlowService{
         return rcsArchiveInfoMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public void modifyRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo) {
+        rcsArchiveInfoMapper.updateByPrimaryKey(rcsArchiveInfo);
+    }
+
 }

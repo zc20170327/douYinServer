@@ -24,4 +24,10 @@ public interface RcsArchiveFlowService {
      */
     public RcsArchiveInfo queryRcsArchiveInfoById(Integer id);
 
+    /**
+     * 修改案卷登记信息中的status
+     * @param rcsArchiveInfo
+     */
+    public void modifyRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo);
+
 }

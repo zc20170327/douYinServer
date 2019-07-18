@@ -15,16 +15,21 @@ public class RcsArchiveFlow {
     private Long id;
 
     //案卷处理序号
-    @Column(name = "OPER_NUM_",type = MySqlTypeConstant.INT,length = 10)
-    private Integer operNum;
+    @Column(name = "OPER_NUM_",type = MySqlTypeConstant.VARCHAR,length = 30)
+    private String operNum;
 
     //处理意见
     @Column(name = "OPINION_",type = MySqlTypeConstant.VARCHAR,length = 128)
     private String opinion;
 
+
     //操作
     @Column(name = "OPERATION_",type = MySqlTypeConstant.VARCHAR,length = 20)
     private String operation;
+
+    //状态
+    @Column(name = "STATUS_",type = MySqlTypeConstant.VARCHAR,length = 20)
+    private String status;
 
     //处理人
     @Column(name = "OPERATOR_",type = MySqlTypeConstant.VARCHAR,length = 20)
@@ -61,7 +66,7 @@ public class RcsArchiveFlow {
         this.id = id;
     }
 
-    public void setOperNum(Integer operNum) {
+    public void setOperNum(String operNum) {
         this.operNum = operNum;
     }
 
@@ -97,7 +102,7 @@ public class RcsArchiveFlow {
         return id;
     }
 
-    public Integer getOperNum() {
+    public String getOperNum() {
         return operNum;
     }
 
@@ -127,5 +132,13 @@ public class RcsArchiveFlow {
 
     public String getDeptId() {
         return deptId;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

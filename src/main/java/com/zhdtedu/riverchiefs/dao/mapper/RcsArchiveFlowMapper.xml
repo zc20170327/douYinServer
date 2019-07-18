@@ -3,9 +3,10 @@
 <mapper namespace="com.zhdtedu.riverchiefs.dao.mapper.RcsArchiveFlowMapper" >
   <resultMap id="BaseResultMap" type="com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow" >
     <id column="ID_" property="id" jdbcType="BIGINT" />
-    <result column="OPER_NUM_" property="operNum" jdbcType="INTEGER" />
+    <result column="OPER_NUM_" property="operNum" jdbcType="VARCHAR" />
     <result column="OPINION_" property="opinion" jdbcType="VARCHAR" />
     <result column="OPERATION_" property="operation" jdbcType="VARCHAR" />
+    <result column="STATUS_" property="status" jdbcType="VARCHAR" />
     <result column="OPERATOR_" property="operator" jdbcType="VARCHAR" />
     <result column="OPER_TIME_" property="operTime" jdbcType="TIMESTAMP" />
     <result column="TIMES_" property="times" jdbcType="INTEGER" />
@@ -71,7 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID_, OPER_NUM_, OPINION_, OPERATION_, OPERATOR_, OPER_TIME_, TIMES_, UNIT_, DEPT_ID_
+    ID_, OPER_NUM_, OPINION_, OPERATION_, STATUS_, OPERATOR_, OPER_TIME_, TIMES_, UNIT_, 
+    DEPT_ID_
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlowExample" >
     select
@@ -105,13 +107,13 @@
   </delete>
   <insert id="insert" parameterType="com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow" >
     insert into rcs_archive_flow (ID_, OPER_NUM_, OPINION_, 
-      OPERATION_, OPERATOR_, OPER_TIME_, 
-      TIMES_, UNIT_, DEPT_ID_
-      )
-    values (#{id,jdbcType=BIGINT}, #{operNum,jdbcType=INTEGER}, #{opinion,jdbcType=VARCHAR}, 
-      #{operation,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, #{operTime,jdbcType=TIMESTAMP}, 
-      #{times,jdbcType=INTEGER}, #{unit,jdbcType=VARCHAR}, #{deptId,jdbcType=VARCHAR}
-      )
+      OPERATION_, STATUS_, OPERATOR_, 
+      OPER_TIME_, TIMES_, UNIT_, 
+      DEPT_ID_)
+    values (#{id,jdbcType=BIGINT}, #{operNum,jdbcType=VARCHAR}, #{opinion,jdbcType=VARCHAR}, 
+      #{operation,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operTime,jdbcType=TIMESTAMP}, #{times,jdbcType=INTEGER}, #{unit,jdbcType=VARCHAR}, 
+      #{deptId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow" >
     insert into rcs_archive_flow
@@ -127,6 +129,9 @@
       </if>
       <if test="operation != null" >
         OPERATION_,
+      </if>
+      <if test="status != null" >
+        STATUS_,
       </if>
       <if test="operator != null" >
         OPERATOR_,
@@ -149,13 +154,16 @@
         #{id,jdbcType=BIGINT},
       </if>
       <if test="operNum != null" >
-        #{operNum,jdbcType=INTEGER},
+        #{operNum,jdbcType=VARCHAR},
       </if>
       <if test="opinion != null" >
         #{opinion,jdbcType=VARCHAR},
       </if>
       <if test="operation != null" >
         #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
       </if>
       <if test="operator != null" >
         #{operator,jdbcType=VARCHAR},
@@ -187,13 +195,16 @@
         ID_ = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.operNum != null" >
-        OPER_NUM_ = #{record.operNum,jdbcType=INTEGER},
+        OPER_NUM_ = #{record.operNum,jdbcType=VARCHAR},
       </if>
       <if test="record.opinion != null" >
         OPINION_ = #{record.opinion,jdbcType=VARCHAR},
       </if>
       <if test="record.operation != null" >
         OPERATION_ = #{record.operation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS_ = #{record.status,jdbcType=VARCHAR},
       </if>
       <if test="record.operator != null" >
         OPERATOR_ = #{record.operator,jdbcType=VARCHAR},
@@ -218,9 +229,10 @@
   <update id="updateByExample" parameterType="map" >
     update rcs_archive_flow
     set ID_ = #{record.id,jdbcType=BIGINT},
-      OPER_NUM_ = #{record.operNum,jdbcType=INTEGER},
+      OPER_NUM_ = #{record.operNum,jdbcType=VARCHAR},
       OPINION_ = #{record.opinion,jdbcType=VARCHAR},
       OPERATION_ = #{record.operation,jdbcType=VARCHAR},
+      STATUS_ = #{record.status,jdbcType=VARCHAR},
       OPERATOR_ = #{record.operator,jdbcType=VARCHAR},
       OPER_TIME_ = #{record.operTime,jdbcType=TIMESTAMP},
       TIMES_ = #{record.times,jdbcType=INTEGER},
@@ -234,13 +246,16 @@
     update rcs_archive_flow
     <set >
       <if test="operNum != null" >
-        OPER_NUM_ = #{operNum,jdbcType=INTEGER},
+        OPER_NUM_ = #{operNum,jdbcType=VARCHAR},
       </if>
       <if test="opinion != null" >
         OPINION_ = #{opinion,jdbcType=VARCHAR},
       </if>
       <if test="operation != null" >
         OPERATION_ = #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS_ = #{status,jdbcType=VARCHAR},
       </if>
       <if test="operator != null" >
         OPERATOR_ = #{operator,jdbcType=VARCHAR},
@@ -262,9 +277,10 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow" >
     update rcs_archive_flow
-    set OPER_NUM_ = #{operNum,jdbcType=INTEGER},
+    set OPER_NUM_ = #{operNum,jdbcType=VARCHAR},
       OPINION_ = #{opinion,jdbcType=VARCHAR},
       OPERATION_ = #{operation,jdbcType=VARCHAR},
+      STATUS_ = #{status,jdbcType=VARCHAR},
       OPERATOR_ = #{operator,jdbcType=VARCHAR},
       OPER_TIME_ = #{operTime,jdbcType=TIMESTAMP},
       TIMES_ = #{times,jdbcType=INTEGER},
@@ -272,5 +288,4 @@
       DEPT_ID_ = #{deptId,jdbcType=VARCHAR}
     where ID_ = #{id,jdbcType=BIGINT}
   </update>
-
 </mapper>
