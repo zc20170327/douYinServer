@@ -1,53 +1,45 @@
 package com.zhdtedu.system.dao.entity;
 
-//import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
-//import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
+import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
+import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
+import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.*;
-import javax.persistence.ManyToMany;
-import java.util.List;
 
-@Entity
 @Table(name = "sys_department")
-@Data
 public class Department {
-    @Id
-    @Column(name = "DEPT_ID_")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int	id;
+    @ApiModelProperty(value = "部门id，自动生成")
+    @Column(name = "DEPT_ID_",type = MySqlTypeConstant.INT,length = 11,isKey = true,isAutoIncrement = true)
+    private Integer	deptId;
     //名称
-    @Column(name = "DEPT_NAME_",length = 111)
-    private String	name;
+    @ApiModelProperty(value = "部门名称")
+    @Column(name = "DEPT_NAME_",type = MySqlTypeConstant.VARCHAR)
+    private String	deptName;
     //上级部门
-    @Column(name = "PART_ID_",length = 11)
+    @ApiModelProperty(value = "上级部门")
+    @Column(name = "PART_ID_",type = MySqlTypeConstant.INT)
     private int	partId;
     //是否启用 1代表启用 0代表不启用
-    @Column(name = "DEPT_STATUS_",length = 5)
+    @ApiModelProperty(value = "否启用 1代表启用 0代表不启用")
+    @Column(name = "STATUS_",type = MySqlTypeConstant.INT)
     private Integer	status;
-    //用户id
-    @Column(name = "USER_ID_",length = 5)
-    private Integer	userId;
-    //多对多不维护的一方属性，只写mappedBy，值和维护方的属性值一致
-   @ManyToMany(mappedBy="departments",fetch = FetchType.LAZY)
-    private List<User> users;
 
-    public int getId() {
-        return id;
+
+    public Integer getDeptId() {
+        return deptId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
     }
 
-    public String getName() {
-        return name;
+    public String getDeptName() {
+        return deptName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
     }
 
     public int getPartId() {
@@ -64,21 +56,5 @@ public class Department {
 
     public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
     }
 }
