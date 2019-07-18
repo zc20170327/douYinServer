@@ -1,34 +1,21 @@
 package com.zhdtedu.riverchiefs.controller;
 
-import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow;
-import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
-import com.zhdtedu.riverchiefs.service.RcsArchiveFlowService;
-import com.zhdtedu.util.SearchCondition;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @Slf4j
-public class RcsArchiveFlowController {
-
+public class RcsArchiveFlowController{
+    /*
     @Autowired
     private RcsArchiveFlowService  rcsArchiveFlowService;
 
-    @Autowired
-    private RcsArchiveFlow rcsArchiveFlow;
+    *//*@Autowired
+    private RcsArchiveFlow rcsArchiveFlow;*//*
 
-    @Autowired
+    *//*@Autowired
     @Setter
-    private RcsArchiveInfo rcsArchiveInfo;
+    private RcsArchiveInfo rcsArchiveInfo;*//*
 
     @Autowired
     private SearchCondition searchCondition;
@@ -81,5 +68,5 @@ public class RcsArchiveFlowController {
 //        rcsArchiveInfo.setTimes("times");
 //        rcsArchiveFlowService.insertRcsArchiveFlow(RcsArchiveFlow rcsArchiveFlow);
 //        rcsArchiveFlowService.updateRcsArchiveInfoStatus(RcsArchiveInfo rcsArchiveInfo);
-    }
+    }*/
 }
