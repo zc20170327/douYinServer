@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface RcsArchiveFlowService {
     /**
-     * 获取所有历史处理记录
+     * 根据案卷编号获取所有历史处理记录
      * @return
      */
-    public List<RcsArchiveFlow> getRcsArchiveFlowList();
+    public List<RcsArchiveFlow> getRcsArchiveFlowList(String id);
 
     /**
      * 插入历史操作记录

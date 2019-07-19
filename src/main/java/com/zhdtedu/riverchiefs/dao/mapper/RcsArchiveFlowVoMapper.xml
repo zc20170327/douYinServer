@@ -17,27 +17,17 @@
       FROM rcs_archive_flow f,
       rcs_archive_info i
        <where>
-            f.OPER_NUM_ = i.ARCH_NUM_ AND f.STATUS_ = i.STATUS_
+            i.STATUS_ != '已处理'
         </where>
     </select>
 
-
-    <resultMap id="QueryRcsArchiveFlowVoByCondition" type="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
-        <id column="i.ID_" property="id" ></id>
-        <result column="ARCH_NUM_" property="archNum"></result>
-        <result column="QUESTION_FROM_" property="questionFrom"></result>
-        <result column="QUESTION_TYPE_" property="questionType"></result>
-        <result column="SUOS_LIUY_" property="suosLiuy"></result>
-        <result column="STATUS_" property="status"></result>
-        <result column="OPER_TIME_" property="operTime"></result>
-    </resultMap>
-    <select id="selectRcsArchiveFlowVoByCondition" resultMap="QueryRcsArchiveFlowVoByCondition"
+    <select id="selectRcsArchiveFlowVoByCondition" resultMap="QueryRcsArchiveFlowVo"
             parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo">
         SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
         FROM rcs_archive_flow f,
         rcs_archive_info i
         <where>
-            f.OPER_NUM_ = i.ARCH_NUM_ AND f.STATUS_ = i.STATUS_
+            i.STATUS_ != '已处理'
             <if test="archNum!=null and archNum!=''">
                 and i.ARCH_NUM_ LIKE CONCAT('%',#{archNum},'%')
             </if>
@@ -56,6 +46,15 @@
             <if test="deptName!=null and deptName!=''">
                 and i.DEPT_ID_ = #{deptName}
             </if>
+        </where>
+    </select>
+
+    <select id="getRcsArchiveFlowVoById" resultMap="QueryRcsArchiveFlowVo" parameterType="String">
+        SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
+        FROM rcs_archive_flow f,
+        rcs_archive_info i
+        <where>
+            i.ARCH_NUM_ = #{id}
         </where>
     </select>
 </mapper>

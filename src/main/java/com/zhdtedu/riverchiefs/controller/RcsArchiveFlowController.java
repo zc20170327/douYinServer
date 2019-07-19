@@ -26,11 +26,11 @@ public class RcsArchiveFlowController extends BaseController{
     @Autowired
     private RcsArchiveFlowService  rcsArchiveFlowService;
 
-    @ApiOperation(value="获取所有历史处理记录", notes="获取所有历史处理记录")
+    @ApiOperation(value="根据案卷编号获取历史处理记录", notes="根据案卷编号获取历史处理记录")
     @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
-    @RequestMapping(value="/archive/flowList", method= RequestMethod.GET)
-    public RcsResult getArchiveFlowList(){
-        List<RcsArchiveFlow> rcsArchiveFlowList = rcsArchiveFlowService.getRcsArchiveFlowList();
+    @RequestMapping(value="/archive/flowList/{id}", method= RequestMethod.GET)
+    public RcsResult getArchiveFlowList(@PathVariable String id){
+        List<RcsArchiveFlow> rcsArchiveFlowList = rcsArchiveFlowService.getRcsArchiveFlowList(id);
         return RcsResult.ok(rcsArchiveFlowList);
     }
 
@@ -86,7 +86,7 @@ public class RcsArchiveFlowController extends BaseController{
                 status = "不立案";
                 break;
             case "申请验收" :
-                status = "待验收";;
+                status = "待验收";
                 break;
             case "结案" :
                 status = "已结案";

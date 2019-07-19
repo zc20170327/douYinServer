@@ -68,21 +68,6 @@ public class RcsArchiveInfo {
     @Column(name="EXT1_",type =MySqlTypeConstant.VARCHAR,length =50)
     private String ext1;
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setArchNum(String archNum) {
-        this.archNum = archNum;
-    }
-
-    public String getArchNum() {
-        return archNum;
-    }
     /* @Override
     public String toString() {
         return "RcsArchiveInfo{" +

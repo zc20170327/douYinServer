@@ -288,4 +288,14 @@
       DEPT_ID_ = #{deptId,jdbcType=VARCHAR}
     where ID_ = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="selectByOperNum" resultMap="BaseResultMap" parameterType="com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow" >
+    select
+    <include refid="Base_Column_List" />
+    from rcs_archive_flow
+    <where>
+      OPER_NUM_ = #{operNum}
+    </where>
+    order by ID_ desc
+  </select>
 </mapper>

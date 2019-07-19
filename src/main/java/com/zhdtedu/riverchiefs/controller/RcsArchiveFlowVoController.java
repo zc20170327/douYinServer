@@ -11,7 +11,10 @@ import com.zhdtedu.util.SearchCondition;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
@@ -93,5 +96,13 @@ public class RcsArchiveFlowVoController extends BaseController{
         }
 
         return RcsResult.ok(pageModel);
+    }
+
+    @ApiOperation(value = "根据案卷编号获取案卷信息", notes = "根据案卷编号获取案卷信息")
+    @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
+    @RequestMapping(value = "/archive/flowVo/{id}", method = RequestMethod.GET)
+    public RcsResult getRcsArchiveFlowVo(@PathVariable String id) {
+        RcsArchiveFlowVo rcsArchiveFlowVo = rcsArchiveFlowVoService.getRcsArchiveFlowVoById(id);
+        return RcsResult.ok(rcsArchiveFlowVo);
     }
 }

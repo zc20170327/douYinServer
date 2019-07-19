@@ -44,5 +44,10 @@ public class RcsArchiveFlowVoServiceImpl implements RcsArchiveFlowVoService{
         return  pageModel;
     }
 
+    @Override
+    public RcsArchiveFlowVo getRcsArchiveFlowVoById(String id) {
+         return  rcsArchiveFlowVoMapper.getRcsArchiveFlowVoById(id);
+    }
+
 
 }

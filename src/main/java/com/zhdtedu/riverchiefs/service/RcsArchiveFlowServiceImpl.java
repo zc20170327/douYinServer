@@ -1,7 +1,6 @@
 package com.zhdtedu.riverchiefs.service;
 
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlow;
-import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveFlowExample;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
 import com.zhdtedu.riverchiefs.dao.mapper.RcsArchiveFlowMapper;
 import com.zhdtedu.riverchiefs.dao.mapper.RcsArchiveInfoMapper;
@@ -22,9 +21,8 @@ public class RcsArchiveFlowServiceImpl implements RcsArchiveFlowService{
     private RcsArchiveInfoMapper rcsArchiveInfoMapper;
 
     @Override
-    public List<RcsArchiveFlow> getRcsArchiveFlowList() {
-        RcsArchiveFlowExample example = new RcsArchiveFlowExample();
-        return rcsArchiveFlowMapper.selectByExample(example);
+    public List<RcsArchiveFlow> getRcsArchiveFlowList(String id) {
+        return rcsArchiveFlowMapper.selectByOperNum(id);
     }
 
     @Override

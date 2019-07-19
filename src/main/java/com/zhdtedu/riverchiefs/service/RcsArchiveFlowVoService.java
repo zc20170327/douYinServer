@@ -20,4 +20,11 @@ public interface RcsArchiveFlowVoService {
      * @return
      */
     public PageModel selectRcsArchiveFlowVoByCondition(int currentPageNo, int pageSize, RcsArchiveFlowVo rcsArchiveFlowVo);
+
+    /**
+     * 根据案卷编号查询vo
+     * @param id
+     * @return
+     */
+    public  RcsArchiveFlowVo getRcsArchiveFlowVoById(String id);
 }
