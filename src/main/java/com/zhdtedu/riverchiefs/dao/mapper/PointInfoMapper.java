@@ -31,10 +31,11 @@ public interface PointInfoMapper {
 
     int updateByPrimaryKey(PointInfo record);
     //根据查询条件获取列表
-    List<PointInfo> selectByBasinExample(@Param("code") Long code,
+    List<PointInfo> selectByPointExample(@Param("code") Long code,
                                          @Param("name") String name,
                                          @Param("pageNo") Integer pageNo,
                                          @Param("pageSize") Integer pageSize);
-    int getTotalCount(@Param("code") Long code,
-                      @Param("name")String name);
+
+  /*  int getTotalCount(@Param("code") Long code,
+                      @Param("name")String name);*/
 }
