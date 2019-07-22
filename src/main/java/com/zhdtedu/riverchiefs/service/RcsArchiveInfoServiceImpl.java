@@ -2,13 +2,17 @@ package com.zhdtedu.riverchiefs.service;
 
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
 import com.zhdtedu.riverchiefs.dao.mapper.RcsArchiveInfoMapper;
+import com.zhdtedu.system.service.SysFileInfoService;
+import com.zhdtedu.util.BusinessRuntimeException;
 import com.zhdtedu.util.SearchCondition;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
 
 @Service
 @Transactional(readOnly =true)
@@ -16,7 +20,10 @@ public class RcsArchiveInfoServiceImpl implements  RcsArchiveInfoService{
 
     @Resource
     private RcsArchiveInfoMapper rcsArchiveInfoMapper;
-    private RcsArchiveInfo rcsArchiveInfo;
+
+    @Resource
+    private SysFileInfoService sysFileInfoService;
+
 
 
     @Override
@@ -36,8 +43,13 @@ public class RcsArchiveInfoServiceImpl implements  RcsArchiveInfoService{
 
     @Override
     @Transactional(readOnly = false)
-    public void addRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo) {
-        rcsArchiveInfoMapper.insert(rcsArchiveInfo);
+    public void addRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo,SearchCondition sc) {
+        if(rcsArchiveInfo!=null && (rcsArchiveInfo.getId()==null || rcsArchiveInfo.getId()==0)) {
+            rcsArchiveInfo.setArchNum(getArchNumCode());
+        }
+        int id  = rcsArchiveInfoMapper.insert(rcsArchiveInfo);
+        System.out.println("=========return id======="+rcsArchiveInfo.getId());
+        sysFileInfoService.updateFileCode(sc.getValue("tempCode"),"rcsArchiveInfo-"+rcsArchiveInfo.getId());
     }
 
     @Override
@@ -50,5 +62,25 @@ public class RcsArchiveInfoServiceImpl implements  RcsArchiveInfoService{
     @Transactional(readOnly = false)
     public void deleteRcsArchiveInfo(Integer id){
         this.deleteRcsArchiveInfo(id);
+    }
+
+    /**
+     * 从数据库获取当天的最大编号
+     * @return
+     */
+    private String getArchNumCode(){
+        SimpleDateFormat sfm = new SimpleDateFormat("yyyy-MM-dd");
+        String code = sfm.format(new Date()).replace("-","");
+        Long nowCode = this.rcsArchiveInfoMapper.selectArchNumMaxCode(code);
+        System.out.println(nowCode);
+        if(nowCode==null||nowCode.equals("")){
+            return  code+"0001";
+        }
+        return nowCode.toString();
+    }
+
+    public static void main(String[] args) {
+        RcsArchiveInfoServiceImpl a = new RcsArchiveInfoServiceImpl();
+        System.out.println(a.getArchNumCode());
     }
 }
