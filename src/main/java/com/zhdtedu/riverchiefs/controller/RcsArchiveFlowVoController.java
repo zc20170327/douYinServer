@@ -33,7 +33,7 @@ public class RcsArchiveFlowVoController extends BaseController{
     @Autowired
     private PageModel pageModel;
 
-    @ApiOperation(value = "获取案卷代办列表", notes = "案卷代办列表")
+    @ApiOperation(value = "案卷代办列表", notes = "案卷代办列表")
     @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
     @RequestMapping(value = "/archive/flowVoList/{curPage}", method = RequestMethod.GET)
     public RcsResult getRcsArchiveFlowVoList(@PathVariable("curPage") String curPage) {
@@ -105,4 +105,133 @@ public class RcsArchiveFlowVoController extends BaseController{
         RcsArchiveFlowVo rcsArchiveFlowVo = rcsArchiveFlowVoService.getRcsArchiveFlowVoById(id);
         return RcsResult.ok(rcsArchiveFlowVo);
     }
+
+    @ApiOperation(value = "已办案卷列表", notes = "已办案卷列表")
+    @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
+    @RequestMapping(value = "/archive/flowVoHandledList/{curPage}", method = RequestMethod.GET)
+    public RcsResult getRcsArchiveFlowVoHandledList(@PathVariable("curPage") String curPage) {
+
+        if(curPage != null){
+            try{
+                currentPageNo = Integer.valueOf(curPage);
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            pageModel =  rcsArchiveFlowVoService.selectRcsArchiveFlowVoHandledList(currentPageNo,pageSize);
+        }catch (Exception e){
+            e.printStackTrace();
+            return  RcsResult.build(500, e.getMessage());
+        }
+
+        return  RcsResult.ok(pageModel);
+    }
+
+    @ApiOperation(value="带条件查询已办案卷列表", notes="带条件查询已办案卷列表")
+    @ApiResponses(value = {@ApiResponse(code = 405,message = "无效的",response = Integer.class)})
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "archNum",value = "案卷编号",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "questionFrom",value = "来源",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "questionType",value = "类型",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "suosLiuy",value = "河段",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "status",value = "状态",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "deptName",value = "处置部门",paramType = "query",dataType = "String")
+    })
+    @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
+    @RequestMapping(value="/archive/flowVoHandledList/conditions/{curPage}", method= RequestMethod.GET)
+    public RcsResult getRcsArchiveFlowVoHandledListByCondition(@PathVariable("curPage") String curPage) {
+        //获取请求的数据
+        sc = this.getSearchCondition();
+        //将请求的数据封装成RcsArchiveFlowVo对象
+        rcsArchiveFlowVo = new RcsArchiveFlowVo(sc.getValue("archNum"),
+                sc.getValue("questionFrom"),
+                sc.getValue("questionType"),
+                sc.getValue("suosLiuy"),
+                sc.getValue("status"),
+                sc.getValue("deptName"));
+
+        if (curPage != null) {
+            try {
+                currentPageNo = Integer.valueOf(curPage);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            pageModel = rcsArchiveFlowVoService.selectRcsArchiveFlowVoHandledListByConditon(currentPageNo, pageSize,rcsArchiveFlowVo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return RcsResult.build(500, e.getMessage());
+        }
+
+        return RcsResult.ok(pageModel);
+    }
+
+    @ApiOperation(value = "已派列表", notes = "已派列表")
+    @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
+    @RequestMapping(value = "/archive/flowVoDispatchedList/{curPage}", method = RequestMethod.GET)
+    public RcsResult getRcsArchiveFlowVoDispatchedList(@PathVariable("curPage") String curPage) {
+
+        if(curPage != null){
+            try{
+                currentPageNo = Integer.valueOf(curPage);
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            pageModel =  rcsArchiveFlowVoService.getRcsArchiveFlowVoDispatchedList(currentPageNo,pageSize);
+        }catch (Exception e){
+            e.printStackTrace();
+            return  RcsResult.build(500, e.getMessage());
+        }
+
+        return  RcsResult.ok(pageModel);
+    }
+
+    @ApiOperation(value="带条件查询已派列表", notes="带条件查询已派列表")
+    @ApiResponses(value = {@ApiResponse(code = 405,message = "无效的",response = Integer.class)})
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "archNum",value = "案卷编号",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "questionFrom",value = "来源",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "questionType",value = "类型",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "suosLiuy",value = "河段",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "status",value = "状态",paramType = "query",dataType = "String"),
+            @ApiImplicitParam(name = "deptName",value = "处置部门",paramType = "query",dataType = "String")
+    })
+    @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
+    @RequestMapping(value="/archive/flowVoDispatchedList/conditions/{curPage}", method= RequestMethod.GET)
+    public RcsResult getRcsArchiveFlowVoDispatchedListByCondition(@PathVariable("curPage") String curPage) {
+        //获取请求的数据
+        sc = this.getSearchCondition();
+        //将请求的数据封装成RcsArchiveFlowVo对象
+        rcsArchiveFlowVo = new RcsArchiveFlowVo(sc.getValue("archNum"),
+                sc.getValue("questionFrom"),
+                sc.getValue("questionType"),
+                sc.getValue("suosLiuy"),
+                sc.getValue("status"),
+                sc.getValue("deptName"));
+
+        if (curPage != null) {
+            try {
+                currentPageNo = Integer.valueOf(curPage);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            pageModel = rcsArchiveFlowVoService.selectRcsArchiveFlowVoDispatchedListByConditon(currentPageNo, pageSize,rcsArchiveFlowVo);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return RcsResult.build(500, e.getMessage());
+        }
+
+        return RcsResult.ok(pageModel);
+    }
+
 }

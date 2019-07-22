@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -55,7 +56,7 @@ public class RcsArchiveFlowController extends BaseController{
                 Integer.valueOf(sc.getValue("times")),
                 sc.getValue("unit"),
                 sc.getValue("deptId"));
-
+        rcsArchiveFlow.setOperTime(new Date());
         //根据id查询案卷登记信息
         RcsArchiveInfo rcsArchiveInfo = rcsArchiveFlowService.queryRcsArchiveInfoById(id);
 
@@ -90,6 +91,9 @@ public class RcsArchiveFlowController extends BaseController{
                 break;
             case "结案" :
                 status = "已结案";
+                break;
+            case "处理" :
+                status = "处理中";
                 break;
             default :
                 status = "未知状态";

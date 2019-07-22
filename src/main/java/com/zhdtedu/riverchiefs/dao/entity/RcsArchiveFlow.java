@@ -22,7 +22,6 @@ public class RcsArchiveFlow {
     @Column(name = "OPINION_",type = MySqlTypeConstant.VARCHAR,length = 128)
     private String opinion;
 
-
     //操作
     @Column(name = "OPERATION_",type = MySqlTypeConstant.VARCHAR,length = 20)
     private String operation;

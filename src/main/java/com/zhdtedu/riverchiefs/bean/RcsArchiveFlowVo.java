@@ -33,6 +33,15 @@ public class RcsArchiveFlowVo implements Serializable {
     @ApiModelProperty(value = "处理时间")
     private Date operTime;
 
+    @ApiModelProperty(value = "时限")
+    private Integer times;
+
+    @ApiModelProperty(value = "时限单位")
+    private String unit;
+
+    @ApiModelProperty(value = "历时小时数")
+    private Integer hours;
+
     @ApiModelProperty(value = "部门名")
     private String deptName;
 

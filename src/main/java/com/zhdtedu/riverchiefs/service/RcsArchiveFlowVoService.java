@@ -27,4 +27,40 @@ public interface RcsArchiveFlowVoService {
      * @return
      */
     public  RcsArchiveFlowVo getRcsArchiveFlowVoById(String id);
+
+    /**
+     * 查询已办案卷
+     * @param currentPageNum
+     * @param pageSize
+     * @return
+     */
+    public PageModel selectRcsArchiveFlowVoHandledList(int currentPageNum, int pageSize);
+
+
+
+    /**
+     * 根据条件查询已办列表
+     * @param currentPageNo
+     * @param pageSize
+     * @param rcsArchiveFlowVo
+     * @return
+     */
+    public PageModel selectRcsArchiveFlowVoHandledListByConditon(int currentPageNo, int pageSize,RcsArchiveFlowVo rcsArchiveFlowVo);
+
+    /**
+     * 查询已派列表
+     * @param currentPageNum
+     * @param pageSize
+     * @return
+     */
+    public PageModel getRcsArchiveFlowVoDispatchedList(int currentPageNum, int pageSize);
+
+    /**
+     * 根据条件查询已派列表
+      * @param currentPageNo
+     * @param pageSize
+     * @param rcsArchiveFlowVo
+     * @return
+     */
+    public PageModel selectRcsArchiveFlowVoDispatchedListByConditon(int currentPageNo, int pageSize,RcsArchiveFlowVo rcsArchiveFlowVo);
 }
