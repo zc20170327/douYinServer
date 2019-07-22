@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(readOnly =true)
+@Transactional
 public class RcsArchiveFlowServiceImpl implements RcsArchiveFlowService{
 
     @Autowired
@@ -21,8 +21,8 @@ public class RcsArchiveFlowServiceImpl implements RcsArchiveFlowService{
     private RcsArchiveInfoMapper rcsArchiveInfoMapper;
 
     @Override
-    public List<RcsArchiveFlow> getRcsArchiveFlowList() {
-        return rcsArchiveFlowMapper.selectByExample(null);
+    public List<RcsArchiveFlow> getRcsArchiveFlowList(String id) {
+        return rcsArchiveFlowMapper.selectByOperNum(id);
     }
 
     @Override
@@ -31,9 +31,13 @@ public class RcsArchiveFlowServiceImpl implements RcsArchiveFlowService{
     }
 
     @Override
-    public void updateRcsArchiveInfoStatus(RcsArchiveInfo rcsArchiveInfo) {
-        rcsArchiveInfoMapper.updateByPrimaryKey(rcsArchiveInfo);
+    public RcsArchiveInfo queryRcsArchiveInfoById(Integer id) {
+        return rcsArchiveInfoMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public void modifyRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo) {
+        rcsArchiveInfoMapper.updateByPrimaryKey(rcsArchiveInfo);
+    }
 
 }

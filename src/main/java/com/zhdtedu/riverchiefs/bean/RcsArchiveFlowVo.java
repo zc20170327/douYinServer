@@ -2,6 +2,7 @@
 package com.zhdtedu.riverchiefs.bean;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -30,10 +31,32 @@ public class RcsArchiveFlowVo implements Serializable {
     @ApiModelProperty(value = "状态")
     private String status;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     @ApiModelProperty(value = "处理时间")
     private Date operTime;
 
+    @ApiModelProperty(value = "时限")
+    private Integer times;
+
+    @ApiModelProperty(value = "时限单位")
+    private String unit;
+
+    @ApiModelProperty(value = "历时小时数")
+    private Integer hours;
+
     @ApiModelProperty(value = "部门名")
     private String deptName;
+
+    public RcsArchiveFlowVo() {
+    }
+    public RcsArchiveFlowVo(String archNum, String questionFrom, String questionType, String suosLiuy, String status, String deptName) {
+        this.archNum = archNum;
+        this.questionFrom = questionFrom;
+        this.questionType = questionType;
+        this.suosLiuy = suosLiuy;
+        this.status = status;
+        this.deptName = deptName;
+    }
+
 }
 

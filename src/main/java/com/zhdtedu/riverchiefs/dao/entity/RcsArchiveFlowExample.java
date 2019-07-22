@@ -175,52 +175,62 @@ public class RcsArchiveFlowExample {
             return (Criteria) this;
         }
 
-        public Criteria andOperNumEqualTo(Integer value) {
+        public Criteria andOperNumEqualTo(String value) {
             addCriterion("OPER_NUM_ =", value, "operNum");
             return (Criteria) this;
         }
 
-        public Criteria andOperNumNotEqualTo(Integer value) {
+        public Criteria andOperNumNotEqualTo(String value) {
             addCriterion("OPER_NUM_ <>", value, "operNum");
             return (Criteria) this;
         }
 
-        public Criteria andOperNumGreaterThan(Integer value) {
+        public Criteria andOperNumGreaterThan(String value) {
             addCriterion("OPER_NUM_ >", value, "operNum");
             return (Criteria) this;
         }
 
-        public Criteria andOperNumGreaterThanOrEqualTo(Integer value) {
+        public Criteria andOperNumGreaterThanOrEqualTo(String value) {
             addCriterion("OPER_NUM_ >=", value, "operNum");
             return (Criteria) this;
         }
 
-        public Criteria andOperNumLessThan(Integer value) {
+        public Criteria andOperNumLessThan(String value) {
             addCriterion("OPER_NUM_ <", value, "operNum");
             return (Criteria) this;
         }
 
-        public Criteria andOperNumLessThanOrEqualTo(Integer value) {
+        public Criteria andOperNumLessThanOrEqualTo(String value) {
             addCriterion("OPER_NUM_ <=", value, "operNum");
             return (Criteria) this;
         }
 
-        public Criteria andOperNumIn(List<Integer> values) {
+        public Criteria andOperNumLike(String value) {
+            addCriterion("OPER_NUM_ like", value, "operNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperNumNotLike(String value) {
+            addCriterion("OPER_NUM_ not like", value, "operNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperNumIn(List<String> values) {
             addCriterion("OPER_NUM_ in", values, "operNum");
             return (Criteria) this;
         }
 
-        public Criteria andOperNumNotIn(List<Integer> values) {
+        public Criteria andOperNumNotIn(List<String> values) {
             addCriterion("OPER_NUM_ not in", values, "operNum");
             return (Criteria) this;
         }
 
-        public Criteria andOperNumBetween(Integer value1, Integer value2) {
+        public Criteria andOperNumBetween(String value1, String value2) {
             addCriterion("OPER_NUM_ between", value1, value2, "operNum");
             return (Criteria) this;
         }
 
-        public Criteria andOperNumNotBetween(Integer value1, Integer value2) {
+        public Criteria andOperNumNotBetween(String value1, String value2) {
             addCriterion("OPER_NUM_ not between", value1, value2, "operNum");
             return (Criteria) this;
         }
@@ -362,6 +372,76 @@ public class RcsArchiveFlowExample {
 
         public Criteria andOperationNotBetween(String value1, String value2) {
             addCriterion("OPERATION_ not between", value1, value2, "operation");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNull() {
+            addCriterion("STATUS_ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNotNull() {
+            addCriterion("STATUS_ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualTo(String value) {
+            addCriterion("STATUS_ =", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualTo(String value) {
+            addCriterion("STATUS_ <>", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThan(String value) {
+            addCriterion("STATUS_ >", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualTo(String value) {
+            addCriterion("STATUS_ >=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThan(String value) {
+            addCriterion("STATUS_ <", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualTo(String value) {
+            addCriterion("STATUS_ <=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLike(String value) {
+            addCriterion("STATUS_ like", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotLike(String value) {
+            addCriterion("STATUS_ not like", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIn(List<String> values) {
+            addCriterion("STATUS_ in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotIn(List<String> values) {
+            addCriterion("STATUS_ not in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusBetween(String value1, String value2) {
+            addCriterion("STATUS_ between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotBetween(String value1, String value2) {
+            addCriterion("STATUS_ not between", value1, value2, "status");
             return (Criteria) this;
         }
 

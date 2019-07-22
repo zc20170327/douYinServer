@@ -7,19 +7,27 @@ import java.util.List;
 
 public interface RcsArchiveFlowService {
     /**
-     * 获取所有历史处理记录
+     * 根据案卷编号获取所有历史处理记录
      * @return
      */
-    public List<RcsArchiveFlow> getRcsArchiveFlowList();
+    public List<RcsArchiveFlow> getRcsArchiveFlowList(String id);
 
     /**
-     * 插入操作处理
+     * 插入历史操作记录
      */
     public void insertRcsArchiveFlow(RcsArchiveFlow rcsArchiveFlow);
 
     /**
-     * 修改案卷登记状态
-     * @param status
+     * 根据id查询案卷登记信息
+     * @param id
+     * @return
      */
-    public void updateRcsArchiveInfoStatus(RcsArchiveInfo rcsArchiveInfo);
+    public RcsArchiveInfo queryRcsArchiveInfoById(Integer id);
+
+    /**
+     * 修改案卷登记信息中的status
+     * @param rcsArchiveInfo
+     */
+    public void modifyRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo);
+
 }

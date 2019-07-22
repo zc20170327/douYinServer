@@ -2,11 +2,10 @@ package com.zhdtedu.riverchiefs.dao.mapper;
 
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfoExample;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 import java.util.Map;
-
-import com.zhdtedu.util.SearchCondition;
-import org.apache.ibatis.annotations.Param;
 
 public interface RcsArchiveInfoMapper {
 
