@@ -116,6 +116,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo" >
+    <selectKey keyProperty="id" order="AFTER" resultType="Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into rcs_archive_info (ID_, ARCH_NUM_, QUESTION_FROM_, QUESTION_TYPE_,
      QUESTION_ADDR_, MAP_LEVEL_, MAP_ADDR_,
     SUOS_LIUY_, CALL_PHONE_, HDZ_NUM_, HDZ_REALNAME_, HDZ_PHONE_, JBR_REALNAME_, DESCRIPTION_,
@@ -438,5 +441,9 @@
       <if test="pageSize!=null">
         limit #{startNo},#{pageSize}
       </if>
+  </select>
+
+  <select id="selectArchNumMaxCode" resultType="Long" parameterType="String">
+        SELECT max(ARCH_NUM_)+1 as ARCH_NUM_  from rcs_archive_info r where r.ARCH_NUM_ like concat(#{code},'%');
   </select>
 </mapper>

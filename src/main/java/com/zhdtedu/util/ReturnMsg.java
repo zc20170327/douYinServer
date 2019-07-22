@@ -90,7 +90,7 @@ public class ReturnMsg {
 			ro.put("msg", e.getMessage());
 			ro.put("type", "error");
 			ro.put("exception", e.getClass().toString());
-			if(e instanceof IllegalArgumentException){
+			if(e instanceof IllegalArgumentException) {
 				ro.put("msg", "无效的参数！");
 			}
 			return this;

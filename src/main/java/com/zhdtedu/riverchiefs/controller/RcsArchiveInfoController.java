@@ -6,6 +6,7 @@ import com.zhdtedu.riverchiefs.dao.entity.JsonResult;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
 import com.zhdtedu.riverchiefs.service.RcsArchiveInfoService;
 import com.zhdtedu.util.APIVersionNo;
+import com.zhdtedu.util.BusinessRuntimeException;
 import com.zhdtedu.util.ReturnMsg;
 import com.zhdtedu.util.SearchCondition;
 import io.swagger.annotations.*;
@@ -15,7 +16,6 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.util.JSONUtils;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
@@ -43,6 +43,7 @@ public class RcsArchiveInfoController extends BaseController {
             ReturnMsg msg = this.getReturnMsg();
             try {
                 System.out.println("=========11111111======");
+
                 SearchCondition sc = this.getSearchCondition();
                 List list = rcsArchiveInfoService.pageQuery(sc);
                 msg.success();
@@ -66,7 +67,7 @@ public class RcsArchiveInfoController extends BaseController {
             @ApiImplicitParam(name = "search_condi",value = "查询条件",paramType = "query",dataType = "string")
     })
     @ApiVersion(APIVersionNo.VERSIONCONSTANT_TOW)
-    @PostMapping(value = "/archive2",produces = "application/json;charset=utf-8")
+    @GetMapping(value = "/archive",produces = "application/json;charset=utf-8")
     public String pageQuery2(){
         List list = rcsArchiveInfoService.pageQuery(this.getSearchCondition());
         Map<String,List> result = new HashMap<String,List>();
@@ -77,24 +78,46 @@ public class RcsArchiveInfoController extends BaseController {
 
 
 
-    @ApiOperation(value="新增案卷信息", notes="新增案卷信息",produces = "application/json;charset=utf-8")
+    @ApiOperation(value="保存案卷信息", notes="新增或者修改案卷信息",produces = "application/json;charset=utf-8")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "archive",value = "",paramType = "form",dataType = "String")
     })
     @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
     @PostMapping(value="/archive",produces = "application/json;charset=utf-8")
     public String addRcsArchiveInfo(@ModelAttribute RcsArchiveInfo archive ){
-            System.out.println(archive);
-            this.rcsArchiveInfoService.addRcsArchiveInfo(archive);
-            return "";
+        ReturnMsg msg = this.getReturnMsg();
+        try {
+            if(archive.getId()==null || archive.getId().equals("")){
+                this.rcsArchiveInfoService.addRcsArchiveInfo(archive,this.getSearchCondition());
+            }else{
+                this.rcsArchiveInfoService.modifyRcsArchiveInfo(archive);
+            }
+            msg.success("保存成功！");
+        }catch (Exception e){
+            e.printStackTrace();
+            msg.exception(e);
+        }
+        return msg.toJSONString();
     }
 
     @ApiOperation(value="获取一条案卷信息", notes="获取一条案卷信息",produces = "application/json;charset=utf-8")
     @ApiImplicitParam(name = "id",value = "案卷ID",dataType = "int",paramType = "path")
     @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
     @RequestMapping(value="/archive/{id}", method= RequestMethod.GET,produces = "application/json;charset=utf-8")
-    public RcsArchiveInfo getRcsArchiveInfo(@PathVariable Integer id){
-            return this.rcsArchiveInfoService.getRcsArchiveInfo(id);
+    public String getRcsArchiveInfo(@PathVariable Integer id){
+        ReturnMsg msg = this.getReturnMsg();
+        try {
+            if(id==null || id==0){
+                throw new BusinessRuntimeException("无效的ID");
+            }
+            RcsArchiveInfo rahi = this.rcsArchiveInfoService.getRcsArchiveInfo(id);
+            msg.putRdata("archiveInfo",rahi);
+            msg.success();
+            return msg.toJSONString();
+        }catch (Exception e){
+            msg.exception(e);
+        }
+        return msg.toJSONString();
     }
 
 
@@ -102,9 +125,17 @@ public class RcsArchiveInfoController extends BaseController {
     @ApiImplicitParam(name = "id",value = "案卷ID",dataType = "int",paramType = "path")
     @RequestMapping(value="/archive/{id}", method= RequestMethod.DELETE,produces = "application/json;charset=utf-8")
     public String delRcsArchiveInfo(@PathVariable Integer id){
-         this.rcsArchiveInfoService.deleteRcsArchiveInfo(id);
-         return  "";
+        ReturnMsg msg = this.getReturnMsg();
+        try {
+            if(id==null || id==0){
+                new BusinessRuntimeException("无效的ID");
+            }
+            this.rcsArchiveInfoService.deleteRcsArchiveInfo(id);
+            msg.success("删除成功！");
+            return msg.toJSONString();
+        }catch (Exception e){
+            msg.exception(e);
+        }
+        return msg.toJSONString();
     }
-
-
 }

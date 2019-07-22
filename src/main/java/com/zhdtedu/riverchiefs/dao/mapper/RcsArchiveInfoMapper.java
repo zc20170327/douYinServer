@@ -33,4 +33,6 @@ public interface RcsArchiveInfoMapper {
     int updateByPrimaryKeySelective(RcsArchiveInfo record);
 
     int updateByPrimaryKey(RcsArchiveInfo record);
+
+    Long selectArchNumMaxCode(String code);
 }

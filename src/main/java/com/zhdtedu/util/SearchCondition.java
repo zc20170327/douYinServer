@@ -3,6 +3,7 @@ package com.zhdtedu.util;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
+import java.util.Map.Entry;
 
 public class SearchCondition {
 
