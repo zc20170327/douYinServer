@@ -90,7 +90,7 @@ public class RcsArchiveInfoController extends BaseController {
             if(archive.getId()==null || archive.getId().equals("")){
                 this.rcsArchiveInfoService.addRcsArchiveInfo(archive,this.getSearchCondition());
             }else{
-                this.rcsArchiveInfoService.modifyRcsArchiveInfo(archive);
+                this.rcsArchiveInfoService.modifyRcsArchiveInfo(archive,this.getSearchCondition());
             }
             msg.success("保存成功！");
         }catch (Exception e){
