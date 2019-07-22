@@ -1,11 +1,15 @@
 package com.zhdtedu.riverchiefs.dao.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Date;
+
 @Data
 @Table(name="rcs_archive_info")
 public class RcsArchiveInfo {
@@ -59,8 +63,10 @@ public class RcsArchiveInfo {
     @Column(name="REPORT_REALNAME_",type =MySqlTypeConstant.VARCHAR,length = 128)
     private String reportRealname;
 
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     @Column(name="REPORT_DATE_",type =MySqlTypeConstant.DATETIME,length = 7)
-    private String reportDate;
+    private Date reportDate;
 
     @Column(name="STATUS_",type =MySqlTypeConstant.VARCHAR,length = 12)
     private String status;
