@@ -46,7 +46,7 @@ public class RcsArchiveFlowController extends BaseController{
             @ApiImplicitParam(name = "deptId",value = "处理部门",paramType = "query",dataType = "String")
     })
     @ApiVersion(APIVersionNo.VERSIONCONSTANT_ONE)
-    @RequestMapping(value="/archive/flowInsert/{id}", method= RequestMethod.GET)
+    @RequestMapping(value="/archive/flowInsert/{id}", method= RequestMethod.POST)
     public void insertArchiveFlow(@PathVariable Integer id){
         //获取请求的数据
         SearchCondition sc = this.getSearchCondition();
