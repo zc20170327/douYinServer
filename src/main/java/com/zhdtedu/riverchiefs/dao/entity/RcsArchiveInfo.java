@@ -7,16 +7,18 @@ import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
 @Data
 @Table(name="rcs_archive_info")
-public class RcsArchiveInfo {
+public class
+RcsArchiveInfo {
 
     @Column(name="ID_",length = 11,isKey = true,type=MySqlTypeConstant.INT,isAutoIncrement =true)
-    @Getter @Setter
     private Integer id;
+
 
     @Column(name="ARCH_NUM_",type =MySqlTypeConstant.VARCHAR,length = 32)
     private String archNum;
@@ -63,9 +65,8 @@ public class RcsArchiveInfo {
     @Column(name="REPORT_REALNAME_",type =MySqlTypeConstant.VARCHAR,length = 128)
     private String reportRealname;
 
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     @Column(name="REPORT_DATE_",type =MySqlTypeConstant.DATETIME,length = 7)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
     private Date reportDate;
 
     @Column(name="STATUS_",type =MySqlTypeConstant.VARCHAR,length = 12)
@@ -74,7 +75,9 @@ public class RcsArchiveInfo {
     @Column(name="EXT1_",type =MySqlTypeConstant.VARCHAR,length =50)
     private String ext1;
 
-    /* @Override
+
+
+   /* @Override
     public String toString() {
         return "RcsArchiveInfo{" +
                 "id=" + id +

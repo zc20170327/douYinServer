@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class BaseController {
 
@@ -38,10 +39,10 @@ public class BaseController {
             if(key.startsWith("order")){
                 sb.append(request.getParameter(key));
             }
-            if(key.startsWith("page_no")){
+            if(key.startsWith("pageNo")){
                 sc.setPageNo(Integer.parseInt(request.getParameter(key)));
             }
-            if(key.startsWith("page_size")){
+            if(key.startsWith("pageSize")){
                 sc.setPageSize(Integer.parseInt(request.getParameter(key)));
             }
         }
@@ -57,6 +58,25 @@ public class BaseController {
 
     public ReturnMsg getReturnMsg() {
         return new ReturnMsg();
+    }
+
+    public void testRequestBodyParame(HttpServletRequest request) {
+        Map<String, String[]> map = request.getParameterMap();
+        Set<Map.Entry<String, String[]>> keSet = map.entrySet();
+        for (Iterator<Map.Entry<String, String[]>> itr = keSet.iterator(); itr.hasNext();) {
+            Map.Entry me = (Map.Entry) itr.next();
+            Object ok = me.getKey();
+            Object ov = me.getValue();
+            String[] value = new String[1];
+            if (ov instanceof String[]) {
+                value = (String[]) ov;
+            } else {
+                value[0] = ov.toString();
+            }
+            for (int k = 0; k < value.length; k++) {
+                System.out.println("************" + ok + "************" + value[k]);
+            }
+        }
     }
 
 
