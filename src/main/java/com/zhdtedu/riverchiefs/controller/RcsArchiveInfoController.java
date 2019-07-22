@@ -4,7 +4,7 @@ import com.sun.swing.internal.plaf.basic.resources.basic_es;
 import com.zhdtedu.riverchiefs.config.ApiVersion;
 import com.zhdtedu.riverchiefs.dao.entity.JsonResult;
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
-import com.zhdtedu.riverchiefs.service.RcsArchiveInfoService;
+
 import com.zhdtedu.util.APIVersionNo;
 import com.zhdtedu.util.BusinessRuntimeException;
 import com.zhdtedu.util.ReturnMsg;
@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/*
 @RestController
 @RequestMapping(value="/{version}",name="版本号，如：v1,v2,v3")
 public class RcsArchiveInfoController extends BaseController {
@@ -139,3 +140,4 @@ public class RcsArchiveInfoController extends BaseController {
         return msg.toJSONString();
     }
 }
+*/

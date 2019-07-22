@@ -25,7 +25,7 @@
     <result column="DUTY_" property="duty" jdbcType="LONGVARCHAR" />
     <result column="DEPT_" property="dept" jdbcType="LONGVARCHAR" />
   </resultMap>
-   <sql id="Example_Where_Clause" >
+  <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
         <if test="criteria.valid" >
@@ -90,7 +90,7 @@
   <sql id="Blob_Column_List" >
     DESCRIPTION_, DUTY_, DEPT_
   </sql>
-  <!--根据parentId查询列表 "  parameterType="String"-->
+  <!--鏍规嵁parentId鏌ヨ鍒楄〃 "  parameterType="String"-->
   <select id="selectByBasinExample" resultMap="BaseResultMap"   >
     select
     <include refid="Base_Column_List" />
@@ -99,21 +99,21 @@
     <if test="parentId != null">
       and PARENT_ID_=#{parentId}
     </if>
-    limit ${(pageNo-1)*pageSize},${pageSize}
+    /* limit ${(pageNo-1)*pageSize},${pageSize}*/
   </select>
 
-  <!-- 获得总记录数 -->
+  <!-- 鑾峰緱鎬昏褰曟暟 -->
 
-  <select id="getTotalCount" resultType="int"   >
-    select
-    count(1) as count
-    from rcs_basin_info
-    where 1=1
-    <if test="parentId != null">
-      and PARENT_ID_=#{parentId}
-    </if>
+  <!--  <select id="getTotalCount" resultType="int"   >
+      select
+      count(1) as count
+      from rcs_basin_info
+      where 1=1
+      <if test="parentId != null">
+        and PARENT_ID_=#{parentId}
+      </if>
 
-  </select>
+    </select>-->
 
 
 

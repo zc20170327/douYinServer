@@ -2,17 +2,16 @@ package com.zhdtedu.system.service;
 
 import com.zhdtedu.system.dao.entity.BaseData;
 import com.zhdtedu.util.RcsResult;
-
-import java.util.List;
+import com.zhdtedu.util.SearchCondition;
 
 
 public interface BaseDataService {
     //获取基础数据列表
-    List<BaseData> getBaseDataList(Long parentId, int pageNo, int pageSize);
+    RcsResult getBaseDataList(SearchCondition searchCondition);
     //获取总记录数
     int  getTotalCount(Long parentId);
     //根据id获取基础数据
-    BaseData getBaseData(long id);
+    RcsResult getBaseData(long id);
     //修改数据保存
     RcsResult  updateBaseData(BaseData baseData);
     //根据id删除数据

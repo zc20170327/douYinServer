@@ -81,35 +81,20 @@
   </sql>
 
   <!--根据名称和编码查询列表 "  parameterType="String"-->
-  <select id="selectByBasinExample" resultMap="BaseResultMap"   >
+  <select id="selectByPointExample" resultMap="BaseResultMap"   >
     select
     <include refid="Base_Column_List" />
     from rcs_point_info
     where 1=1
     <if test="code != null">
-      and code=#{code}
+      and code_=#{code}
     </if>
     <if test="name != null">
-      and name=#{name}
+      and name_=#{name}
     </if>
-    limit ${(pageNo-1)*pageSize},${pageSize}
+    /*  limit ${(pageNo-1)*pageSize},${pageSize}*/
   </select>
 
-  <!-- 获得总记录数 -->
-
-  <select id="getTotalCount" resultType="int"   >
-    select
-    count(1) as count
-    from rcs_point_info
-    where 1=1
-     <if test="code != null">
-      and code=#{code}
-    </if>
-    <if test="name != null">
-      and name=#{name}
-    </if>
-
-  </select>
 
 
 
@@ -128,7 +113,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from rcs_point_info
     where ID_ = #{id,jdbcType=BIGINT}
@@ -303,19 +288,19 @@
   <update id="updateByExample" parameterType="map" >
     update rcs_point_info
     set ID_ = #{record.id,jdbcType=BIGINT},
-      CODE_ = #{record.code,jdbcType=BIGINT},
-      NAME_ = #{record.name,jdbcType=VARCHAR},
-      LEVEL_ = #{record.level,jdbcType=VARCHAR},
-      LOCATION_ = #{record.location,jdbcType=VARCHAR},
-      CATEGORY_ID_ = #{record.categoryId,jdbcType=BIGINT},
-      ADDRESS_ = #{record.address,jdbcType=VARCHAR},
-      DESCRIPTION_ = #{record.description,jdbcType=VARCHAR},
-      NETWORK_CODE_ = #{record.networkCode,jdbcType=BIGINT},
-      MANAGE_DEPT_ID_ = #{record.manageDeptId,jdbcType=BIGINT},
-      OWERSHIP_ID_ = #{record.owershipId,jdbcType=BIGINT},
-      ATTACH_PATH_ = #{record.attachPath,jdbcType=VARCHAR},
-      CREATE_TIME_ = #{record.createTime,jdbcType=TIMESTAMP},
-      UPDATE_TIME_ = #{record.updateTime,jdbcType=TIMESTAMP}
+    CODE_ = #{record.code,jdbcType=BIGINT},
+    NAME_ = #{record.name,jdbcType=VARCHAR},
+    LEVEL_ = #{record.level,jdbcType=VARCHAR},
+    LOCATION_ = #{record.location,jdbcType=VARCHAR},
+    CATEGORY_ID_ = #{record.categoryId,jdbcType=BIGINT},
+    ADDRESS_ = #{record.address,jdbcType=VARCHAR},
+    DESCRIPTION_ = #{record.description,jdbcType=VARCHAR},
+    NETWORK_CODE_ = #{record.networkCode,jdbcType=BIGINT},
+    MANAGE_DEPT_ID_ = #{record.manageDeptId,jdbcType=BIGINT},
+    OWERSHIP_ID_ = #{record.owershipId,jdbcType=BIGINT},
+    ATTACH_PATH_ = #{record.attachPath,jdbcType=VARCHAR},
+    CREATE_TIME_ = #{record.createTime,jdbcType=TIMESTAMP},
+    UPDATE_TIME_ = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>

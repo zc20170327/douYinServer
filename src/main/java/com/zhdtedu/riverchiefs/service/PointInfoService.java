@@ -3,14 +3,12 @@ package com.zhdtedu.riverchiefs.service;
 import com.zhdtedu.riverchiefs.dao.entity.PointInfo;
 import com.zhdtedu.util.RcsResult;
 
-import java.util.List;
-
 public interface PointInfoService {
 
     //获取基础数据列表
-    List<PointInfo> getPointInfoList(Long code,String name, int pageNo, int pageSize);
+    RcsResult getPointInfoList(Long code,String name, int pageNo);
     //获取总记录数
-    int  getTotalCount(Long code,String name);
+    /* int  getTotalCount(Long code,String name);*/
     //新增流域信息
 
     RcsResult savePointInfo(PointInfo pointInfo);

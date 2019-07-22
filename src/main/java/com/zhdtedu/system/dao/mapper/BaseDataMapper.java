@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -46,6 +47,7 @@ public interface BaseDataMapper {
     List<BaseData> selectByExample2(@Param("parentId") Long parentId,
                                     @Param("pageNo") Integer pageNo,
                                     @Param("pageSize") Integer pageSize);
+    List<BaseData> selectByCondition(Map<String,Object> params);
     int getTotalCount(@Param("parentId") Long parentId);
 
 }

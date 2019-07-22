@@ -3,11 +3,9 @@ package com.zhdtedu.riverchiefs.service;
 import com.zhdtedu.riverchiefs.dao.entity.BasinInfo;
 import com.zhdtedu.util.RcsResult;
 
-import java.util.List;
-
 public interface BasinInfoService {
     //获取基础数据列表
-    List<BasinInfo> getBasinList(Long parentId, int pageNo, int pageSize);
+    RcsResult getBasinList(Long parentId, int pageNo);
     //获取总记录数
     int  getTotalCount(Long parentId);
     //新增流域信息

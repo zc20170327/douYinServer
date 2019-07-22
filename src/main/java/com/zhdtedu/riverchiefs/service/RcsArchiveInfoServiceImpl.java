@@ -1,7 +1,7 @@
 package com.zhdtedu.riverchiefs.service;
 
 import com.zhdtedu.riverchiefs.dao.entity.RcsArchiveInfo;
-import com.zhdtedu.riverchiefs.dao.mapper.RcsArchiveInfoMapper;
+
 import com.zhdtedu.system.service.SysFileInfoService;
 import com.zhdtedu.util.BusinessRuntimeException;
 import com.zhdtedu.util.SearchCondition;
@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 
+/*
 @Service
 @Transactional(readOnly =true)
 public class RcsArchiveInfoServiceImpl implements  RcsArchiveInfoService{
@@ -69,10 +70,12 @@ public class RcsArchiveInfoServiceImpl implements  RcsArchiveInfoService{
         this.deleteRcsArchiveInfo(id);
     }
 
-    /**
+    */
+/**
      * 从数据库获取当天的最大编号
      * @return
-     */
+     *//*
+
     private String getArchNumCode(){
         SimpleDateFormat sfm = new SimpleDateFormat("yyyy-MM-dd");
         String code = sfm.format(new Date()).replace("-","");
@@ -89,3 +92,4 @@ public class RcsArchiveInfoServiceImpl implements  RcsArchiveInfoService{
         System.out.println(a.getArchNumCode());
     }
 }
+*/

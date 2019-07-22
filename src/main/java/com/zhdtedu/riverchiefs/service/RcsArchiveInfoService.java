@@ -5,6 +5,7 @@ import com.zhdtedu.util.SearchCondition;
 
 import java.util.List;
 
+/*
 public interface RcsArchiveInfoService {
 
     public List<RcsArchiveInfo> pageQuery(SearchCondition sc);
@@ -18,3 +19,4 @@ public interface RcsArchiveInfoService {
     public void deleteRcsArchiveInfo(Integer id);
 
 }
+*/

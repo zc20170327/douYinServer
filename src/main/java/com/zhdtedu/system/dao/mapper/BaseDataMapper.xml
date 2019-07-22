@@ -37,6 +37,22 @@
 
   </select>
 
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="java.util.Map">
+    select
+    <include refid="Base_Column_List" />
+    from sys_dict_base
+    where 1=1
+    <if test="parentId != null">
+      and PARENT_ID_=#{parentId}
+    </if>
+    <if test="orderBy!=null" >
+      order by  #{orderBy}
+    </if>
+    <!--    <if test="pageSize!=null">
+          limit ${(pageNo-1)*pageSize},${pageSize}
+        </if>-->
+  </select>
+
 
 
   <sql id="Example_Where_Clause" >
