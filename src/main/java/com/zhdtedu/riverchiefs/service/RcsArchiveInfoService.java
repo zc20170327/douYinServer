@@ -13,7 +13,7 @@ public interface RcsArchiveInfoService {
 
     public void addRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo,SearchCondition sc);
 
-    public void modifyRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo);
+    public void modifyRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo,SearchCondition sc);
 
     public void deleteRcsArchiveInfo(Integer id);
 

@@ -47,15 +47,20 @@ public class RcsArchiveInfoServiceImpl implements  RcsArchiveInfoService{
         if(rcsArchiveInfo!=null && (rcsArchiveInfo.getId()==null || rcsArchiveInfo.getId()==0)) {
             rcsArchiveInfo.setArchNum(getArchNumCode());
         }
-        int id  = rcsArchiveInfoMapper.insert(rcsArchiveInfo);
-        System.out.println("=========return id======="+rcsArchiveInfo.getId());
-        sysFileInfoService.updateFileCode(sc.getValue("tempCode"),"rcsArchiveInfo-"+rcsArchiveInfo.getId());
-    }
+        rcsArchiveInfoMapper.insert(rcsArchiveInfo);
+        if(sc.getValue("tempCode")!=null && sc.getValue("tempCode").equals("")){
+            sysFileInfoService.updateFileCode(sc.getValue("tempCode"),"rcsArchiveInfo-"+rcsArchiveInfo.getId());
+        }
+        }
+
 
     @Override
     @Transactional(readOnly = false)
-    public void modifyRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo) {
+    public void modifyRcsArchiveInfo(RcsArchiveInfo rcsArchiveInfo,SearchCondition sc) {
         this.rcsArchiveInfoMapper.updateByPrimaryKey(rcsArchiveInfo);
+        if(sc.getValue("tempCode")!=null && sc.getValue("tempCode").equals("")){
+            sysFileInfoService.updateFileCode(sc.getValue("tempCode"),"rcsArchiveInfo-"+rcsArchiveInfo.getId());
+        }
     }
 
     @Override
