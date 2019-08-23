@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhdtedu.system.dao.mapper.UserTaskMapper">
+  <resultMap id="BaseResultMap" type="com.zhdtedu.system.dao.entity.UserTask">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="TASK_ID" jdbcType="INTEGER" property="taskId" />
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+  </resultMap>
+  <select id="get" parameterType="com.zhdtedu.system.dao.entity.UserTask" resultType="int">
+    select
+    count(*)
+    from sys_user_task
+    where 1=1
+    <if test="TASK_ID != null">
+      and  TASK_ID = #{taskId,jdbcType=INTEGER}
+    </if>
+    <if test="USER_ID != null">
+      and  USER_ID = #{userId,jdbcType=INTEGER},
+    </if>
+  </select>
+  <delete id="deleteById" parameterType="com.zhdtedu.system.dao.entity.UserTask">
+    delete from sys_user_task
+    where  ID_=#{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhdtedu.system.dao.entity.UserTask">
+    insert into sys_user_task (TASK_ID, USER_ID
+      )
+    values (#{taskId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateById" parameterType="com.zhdtedu.system.dao.entity.UserTask">
+    update sys_user_task
+    set ID_ = #{record.id,jdbcType=INTEGER},
+      TASK_ID = #{record.taskId,jdbcType=INTEGER},
+      USER_ID = #{record.userId,jdbcType=INTEGER}
+    where  ID_=#{id,jdbcType=INTEGER}
+  </update>
+</mapper>

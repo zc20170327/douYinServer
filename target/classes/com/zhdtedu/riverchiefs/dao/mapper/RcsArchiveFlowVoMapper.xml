@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhdtedu.riverchiefs.dao.mapper.RcsArchiveFlowVoMapper" >
+
+  
+    <resultMap id="QueryRcsArchiveFlowVo" type="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
+        <id column="i.ID_" property="id" ></id>
+        <result column="ARCH_NUM_" property="archNum"></result>
+        <result column="QUESTION_FROM_" property="questionFrom"></result>
+        <result column="QUESTION_TYPE_" property="questionType"></result>
+        <result column="SUOS_LIUY_" property="suosLiuy"></result>
+        <result column="STATUS_" property="status"></result>
+        <result column="OPER_TIME_" property="operTime"></result>
+    </resultMap>
+    <select id="selectRcsArchiveFlowVoList" resultMap="QueryRcsArchiveFlowVo">
+      SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
+      FROM rcs_archive_flow f,
+      rcs_archive_info i
+       <where>
+            i.STATUS_ =  '已处理' or i.STATUS_ =  '上报'
+        </where>
+         GROUP BY i.ARCH_NUM_
+    </select>
+
+    <select id="selectRcsArchiveFlowVoByCondition" resultMap="QueryRcsArchiveFlowVo"
+            parameterType="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo">
+        SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
+        FROM rcs_archive_flow f,
+        rcs_archive_info i
+        <where>
+            (i.STATUS_ =  '已处理' or i.STATUS_ =  '上报')
+            <if test="archNum!=null and archNum!=''">
+                and i.ARCH_NUM_ LIKE CONCAT('%',#{archNum},'%')
+            </if>
+            <if test="questionFrom!=null and questionFrom!=''">
+                and i.QUESTION_FROM_ = #{questionFrom}
+            </if>
+            <if test="questionType!=null and questionType!=''">
+                and i.QUESTION_TYPE_ LIKE CONCAT('%',#{questionType},'%')
+            </if>
+            <if test="suosLiuy!=null and suosLiuy!=''">
+                and i.SUOS_LIUY_ LIKE CONCAT('%',#{suosLiuy},'%')
+            </if>
+            <if test="status!=null and status!=''">
+                and i.STATUS_ = #{status}
+            </if>
+            <if test="deptName!=null and deptName!=''">
+                and i.DEPT_ID_ = #{deptName}
+            </if>
+        </where>
+        GROUP BY i.ARCH_NUM_
+    </select>
+
+    <select id="getRcsArchiveFlowVoById" resultMap="QueryRcsArchiveFlowVo" parameterType="String">
+        SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
+        FROM rcs_archive_flow f,
+        rcs_archive_info i
+        <where>
+            i.ARCH_NUM_ = #{id}
+        </where>
+        GROUP BY i.ARCH_NUM_
+    </select>
+
+    <select id="selectRcsArchiveFlowVoHandledList" resultMap="QueryRcsArchiveFlowVo">
+        SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
+        FROM rcs_archive_flow f,
+        rcs_archive_info i
+        <where>
+            i.STATUS_ =  '已结案' or i.STATUS_ =  '不立案' or i.STATUS_ =  '待核实' or i.STATUS_ =  '上报'
+        </where>
+        GROUP BY i.ARCH_NUM_
+    </select>
+
+
+    <select id="selectRcsArchiveFlowVoHandledListByConditon" resultMap="QueryRcsArchiveFlowVo">
+        SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_
+        FROM rcs_archive_flow f,
+        rcs_archive_info i
+        <where>
+            i.STATUS_ =  '已结案' or i.STATUS_ =  '不立案' or i.STATUS_ =  '待核实' or i.STATUS_ =  '上报'
+            <if test="archNum!=null and archNum!=''">
+                and i.ARCH_NUM_ LIKE CONCAT('%',#{archNum},'%')
+            </if>
+            <if test="questionFrom!=null and questionFrom!=''">
+                and i.QUESTION_FROM_ = #{questionFrom}
+            </if>
+            <if test="questionType!=null and questionType!=''">
+                and i.QUESTION_TYPE_ LIKE CONCAT('%',#{questionType},'%')
+            </if>
+            <if test="suosLiuy!=null and suosLiuy!=''">
+                and i.SUOS_LIUY_ LIKE CONCAT('%',#{suosLiuy},'%')
+            </if>
+            <if test="status!=null and status!=''">
+                and i.STATUS_ = #{status}
+            </if>
+            <if test="deptName!=null and deptName!=''">
+                and i.DEPT_ID_ = #{deptName}
+            </if>
+        </where>
+        GROUP BY i.ARCH_NUM_
+    </select>
+
+
+    <resultMap id="QueryRcsArchiveFlowVoDispatched" type="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
+        <id column="i.ID_" property="id" ></id>
+        <result column="ARCH_NUM_" property="archNum"></result>
+        <result column="QUESTION_FROM_" property="questionFrom"></result>
+        <result column="QUESTION_TYPE_" property="questionType"></result>
+        <result column="SUOS_LIUY_" property="suosLiuy"></result>
+        <result column="STATUS_" property="status"></result>
+        <result column="OPER_TIME_" property="operTime"></result>
+        <result column="TIMES_" property="times"></result>
+        <result column="UNIT_" property="unit"></result>
+    </resultMap>
+    <select id="selectRcsArchiveFlowVoDispatchedList" resultMap="QueryRcsArchiveFlowVoDispatched">
+        SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_,f.TIMES_,f.UNIT_
+        FROM rcs_archive_flow f,
+        rcs_archive_info i
+        <where>
+            i.STATUS_ =  '待处理'
+        </where>
+        GROUP BY i.ARCH_NUM_
+    </select>
+
+    <resultMap id="QueryRcsArchiveFlowVoDispatchedByConditon" type="com.zhdtedu.riverchiefs.bean.RcsArchiveFlowVo" >
+        <id column="i.ID_" property="id" ></id>
+        <result column="ARCH_NUM_" property="archNum"></result>
+        <result column="QUESTION_FROM_" property="questionFrom"></result>
+        <result column="QUESTION_TYPE_" property="questionType"></result>
+        <result column="SUOS_LIUY_" property="suosLiuy"></result>
+        <result column="STATUS_" property="status"></result>
+        <result column="OPER_TIME_" property="operTime"></result>
+        <result column="TIMES_" property="times"></result>
+        <result column="UNIT_" property="unit"></result>
+    </resultMap>
+    <select id="selectRcsArchiveFlowVoDispatchedListByConditon" resultMap="QueryRcsArchiveFlowVoDispatchedByConditon">
+        SELECT DISTINCT i.ID_,i.ARCH_NUM_,i.QUESTION_FROM_,i.QUESTION_TYPE_,i.SUOS_LIUY_,i.STATUS_,f.OPER_TIME_,f.TIMES_,f.UNIT_
+        FROM rcs_archive_flow f,
+        rcs_archive_info i
+        <where>
+            i.STATUS_ =  '待处理'
+            <if test="archNum!=null and archNum!=''">
+                and i.ARCH_NUM_ LIKE CONCAT('%',#{archNum},'%')
+            </if>
+            <if test="questionFrom!=null and questionFrom!=''">
+                and i.QUESTION_FROM_ = #{questionFrom}
+            </if>
+            <if test="questionType!=null and questionType!=''">
+                and i.QUESTION_TYPE_ LIKE CONCAT('%',#{questionType},'%')
+            </if>
+            <if test="suosLiuy!=null and suosLiuy!=''">
+                and i.SUOS_LIUY_ LIKE CONCAT('%',#{suosLiuy},'%')
+            </if>
+            <if test="status!=null and status!=''">
+                and i.STATUS_ = #{status}
+            </if>
+            <if test="deptName!=null and deptName!=''">
+                and i.DEPT_ID_ = #{deptName}
+            </if>
+        </where>
+        GROUP BY i.ARCH_NUM_
+    </select>
+</mapper>

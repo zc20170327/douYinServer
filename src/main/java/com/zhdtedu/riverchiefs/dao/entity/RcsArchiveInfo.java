@@ -11,8 +11,7 @@ import lombok.ToString;
 
 import java.util.Date;
 
-@Data
-@Table(name="rcs_archive_info")
+
 public class
 RcsArchiveInfo {
 

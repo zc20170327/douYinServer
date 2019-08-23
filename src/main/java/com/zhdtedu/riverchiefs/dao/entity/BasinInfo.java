@@ -9,7 +9,6 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-@Table(name = "rcs_basin_info")
 /**
  * 流域
  */

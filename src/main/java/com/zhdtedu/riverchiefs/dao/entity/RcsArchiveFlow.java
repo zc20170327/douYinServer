@@ -8,8 +8,7 @@ import lombok.Data;
 
 import java.util.Date;
 
-@Data
-@Table(name = "rcs_archive_flow")
+
 public class RcsArchiveFlow {
     //主键字段
     @Column(name = "ID_",type = MySqlTypeConstant.BIGINT,length = 10,isKey = true,isAutoIncrement = true)

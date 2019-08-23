@@ -32,10 +32,10 @@ public class Swagger2  {
 				.paths(PathSelectors.any())
 				.build();
 	}
-	
+
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("河水制系统API接口")
+				.title("抖音系统API接口")
 				.description("详细描述服务的访问方法和参数说明")
 				.termsOfServiceUrl("http://www.zhdtedu.com")
 				.version("0.1")

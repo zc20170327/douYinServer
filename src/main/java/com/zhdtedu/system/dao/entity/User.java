@@ -5,78 +5,51 @@ import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.Date;
+import java.util.List;
 
-@Table(name = "sys_users")
+@Data
+@Table(name = "sys_user")
 public class User {
     @ApiModelProperty(value = "用户id，自动生成")
     @Column(name = "USER_ID_",type = MySqlTypeConstant.INT,length = 11,isKey = true,isAutoIncrement = true)
     private Integer userId;
-    //名称
-    @ApiModelProperty(value = "名称")
-    @Column(name = "USER_NAME_",type = MySqlTypeConstant.VARCHAR,length = 111)
+
+    @ApiModelProperty(value = "用户名")
+    @Column(name = "USER_NAME_",type = MySqlTypeConstant.VARCHAR,length = 20)
     private String	userName;
-    //电话号码
-    @ApiModelProperty(value = "电话号码")
-    @Column(name = "TELEPHONE_",type = MySqlTypeConstant.VARCHAR,length = 111)
-    private String	telephone;
-    //邮箱
-    @ApiModelProperty(value = "邮箱")
-    @Column(name = "MAILBOX_",type = MySqlTypeConstant.VARCHAR,length = 111)
-    private String mailbox;
-    //职务
-    @ApiModelProperty(value = "职务")
-    @Column(name = "ROLE_",type = MySqlTypeConstant.VARCHAR,length = 111)
-    private String	role;
-    //是否启用 1代表启用 0代表不启用
-    @ApiModelProperty(value = "是否启用 1代表启用 0代表不启用")
-    @Column(name = "USER_STATUS_",type = MySqlTypeConstant.INT,length = 111)
+
+    @ApiModelProperty(value = "手机号码")
+    @Column(name = "PHONE_",type = MySqlTypeConstant.VARCHAR,length = 11)
+    private String	phone;
+
+
+    @ApiModelProperty(value = "密码")
+    @Column(name = "PASSWORD_",type = MySqlTypeConstant.VARCHAR,length = 11)
+    private String	password;
+
+
+    @ApiModelProperty(value = "注册状态")
+    @Column(name = "USER_STATUS_",type = MySqlTypeConstant.INT,length = 1)
     private Integer	userStatus;
 
-    public Integer getUserId() {
-        return userId;
-    }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
 
-    public String getUserName() {
-        return userName;
-    }
+    @ApiModelProperty(value = "注册时间")
+    @Column(name = "SIGN_UP_TIME_",type = MySqlTypeConstant.DATETIME)
+    private Date signUpTime;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    @ApiModelProperty(value = "积分")
+    @Column(name = "INTEGRAL_",type = MySqlTypeConstant.INT,length = 111)
+    private Integer	integer;
 
-    public String getTelephone() {
-        return telephone;
-    }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
+    @ApiModelProperty(value = "微信昵称")
+    @Column(name = "WeChat_NickName_",type = MySqlTypeConstant.VARCHAR,length = 111)
+    private String	weChatNickName;
 
-    public String getMailbox() {
-        return mailbox;
-    }
+   //一个用户可以有多个订单
+    private List<Task> tasks;
 
-    public void setMailbox(String mailbox) {
-        this.mailbox = mailbox;
-    }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Integer getUserStatus() {
-        return userStatus;
-    }
-
-    public void setUserStatus(Integer userStatus) {
-        this.userStatus = userStatus;
-    }
 }

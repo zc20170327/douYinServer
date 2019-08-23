@@ -8,8 +8,7 @@ import lombok.Data;
 /**
  * 地图坐标信息
  */
-@Data
-@Table(name="rcs_coordinate_info")
+
 public class RcsCoordinateInfo {
 
     @Column(name="ID_",length = 11,isKey = true,type= MySqlTypeConstant.INT,isAutoIncrement =true)
