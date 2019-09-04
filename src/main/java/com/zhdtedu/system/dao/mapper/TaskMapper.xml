@@ -14,7 +14,7 @@
     <result column="QUANTITY_" jdbcType="INTEGER" property="quantity" />
     <result column="DESCRIPTION_" jdbcType="VARCHAR" property="description" />
     <result column="TASK_CATEGORY_" jdbcType="VARCHAR" property="taskCategory" />
-    <result column="INTEGER_" jdbcType="VARCHAR" property="integer" />
+    <result column="INTEGRAL_" jdbcType="VARCHAR" property="integral" />
 
   </resultMap>
   <delete id="deleteById" parameterType="com.zhdtedu.system.dao.entity.Task">
@@ -25,11 +25,11 @@
      insert into sys_task ( USER_ID_, TASK_TYPE_,
       ORDER_TIME_, SCHEDULE_, ORDER_AMOUNT_,
       ORDER_PERSON_, COMPLETE_ORDER_TIME_, LINK_,
-      QUANTITY_, DESCRIPTION_,TASK_CATEGORY_,INTEGER_)
+      QUANTITY_, DESCRIPTION_,TASK_CATEGORY_,INTEGRAL_)
     values (#{userId,jdbcType=INTEGER}, #{taskType,jdbcType=VARCHAR},
       #{orderTime,jdbcType=TIMESTAMP}, #{schedule,jdbcType=VARCHAR}, #{orderAmount,jdbcType=DOUBLE},
       #{orderPerson,jdbcType=VARCHAR}, #{completeOrderTime,jdbcType=TIMESTAMP}, #{link,jdbcType=VARCHAR},
-      #{quantity,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR},#{taskCategory,jdbcType=VARCHAR},#{integer,jdbcType=INTEGER})
+      #{quantity,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR},#{taskCategory,jdbcType=VARCHAR},#{integral,jdbcType=INTEGER})
   </insert>
   <update id="updateById" parameterType="com.zhdtedu.system.dao.entity.Task">
     update sys_task
@@ -45,7 +45,7 @@
       QUANTITY_ = #{quantity,jdbcType=INTEGER},
       DESCRIPTION_ = #{description,jdbcType=VARCHAR},
       TASK_CATEGORY_=#{taskCategory,jdbcType=VARCHAR},
-      INTEGER_=#{integer,jdbcType=INTEGER}
+      INTEGRAL_=#{integral,jdbcType=INTEGER}
     where ID_ = #{id,jdbcType=INTEGER}
   </update>
   <!-- 获得总记录数 -->
@@ -66,7 +66,7 @@
   <!--根据名称和开始时间，结束时间获取监测点列表 " -->
   <select id="getLists" resultMap="BaseResultMap"   >
     select   ID_, USER_ID_, TASK_TYPE_, ORDER_TIME_, SCHEDULE_, ORDER_AMOUNT_, ORDER_PERSON_,
-    COMPLETE_ORDER_TIME_ ,LINK_,QUANTITY_,DESCRIPTION_,TASK_CATEGORY_,INTEGER_ from sys_task
+    COMPLETE_ORDER_TIME_ ,LINK_,QUANTITY_,DESCRIPTION_,TASK_CATEGORY_,INTEGRAL_ from sys_task
     where 1=1
     <!--
     <if test="name != null">
@@ -82,9 +82,9 @@
   </select>
   <select id="get" parameterType="com.zhdtedu.system.dao.entity.Task" resultMap="BaseResultMap" >
     select ID_, USER_ID_, TASK_TYPE_, ORDER_TIME_, SCHEDULE_, ORDER_AMOUNT_, ORDER_PERSON_,
-    COMPLETE_ORDER_TIME_ ,LINK_,QUANTITY_,DESCRIPTION_,TASK_CATEGORY_,INTEGER_ from sys_task
+    COMPLETE_ORDER_TIME_ ,LINK_,QUANTITY_,DESCRIPTION_,TASK_CATEGORY_,INTEGRAL_ from sys_task
     where 1=1
-   <if test="ID_ != null">
+   <if test="id != null">
    and   ID_ = #{id,jdbcType=INTEGER}
    </if>
   </select>

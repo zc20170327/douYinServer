@@ -8,7 +8,7 @@
     <result column="USER_STATUS_" jdbcType="INTEGER" property="userStatus" />
     <result column="SIGN_UP_TIME_" jdbcType="TIMESTAMP" property="signUpTime" />
     <result column="INTEGRAL_" jdbcType="INTEGER" property="integral" />
-    <result column="WeChat_NickName_" jdbcType="VARCHAR" property="wechatNickname" />
+    <result column="WeChat_NickName_" jdbcType="VARCHAR" property="wechatNickName" />
     <result column="PASSWORD_" jdbcType="VARCHAR" property="password" />
     <!-- 再配置 任务 集合 -->
     <collection property="tasks" ofType="com.zhdtedu.system.dao.entity.Task">
@@ -22,7 +22,7 @@
       <result column="QUANTITY_"  property="quantity" />
       <result column="DESCRIPTION_"  property="description" />
       <result column="TASK_CATEGORY_"  property="taskCategory" />
-      <result column="TASK_INTEGER_"  property="integer" />
+      <result column="TASK_INTEGER_"  property="integral" />
     </collection>
   </resultMap>
   <delete id="deleteById" parameterType="com.zhdtedu.system.dao.entity.User">
@@ -54,10 +54,9 @@
   </select>
   <!--根据名称和开始时间，结束时间获取监测点列表 " -->
   <select id="getLists" resultMap="BaseResultMap"   >
-    select sys_user.USER_ID_, sys_user.USER_NAME_, sys_user.PHONE_, sys_user.USER_STATUS_, sys_user.SIGN_UP_TIME_, sys_user.INTEGRAL_, sys_user.WeChat_NickName_,
-    sys_user.PASSWORD_  , sys_task.TASK_TYPE_, sys_task.ORDER_TIME_, sys_task.SCHEDULE_, sys_task.ORDER_AMOUNT_, sys_task.ORDER_PERSON_,
-    sys_task.COMPLETE_ORDER_TIME_ ,sys_task.LINK_,sys_task.QUANTITY_,sys_task.DESCRIPTION_,sys_task.TASK_CATEGORY_,sys_task.INTEGRAL_ as TASK_INTEGER_  from sys_user,sys_task,sys_user_task
-    where sys_user.USER_ID_=sys_user_task.USER_ID_ and sys_user_task.TASK_ID_=sys_task.ID_
+    select USER_ID_, USER_NAME_, PHONE_,
+    USER_STATUS_, SIGN_UP_TIME_, INTEGRAL_,
+    WeChat_NickName_, PASSWORD_  from sys_user
     <if test="name != null"></if>
     <!--
     <if test="name != null">
@@ -83,13 +82,13 @@
       PASSWORD_ = #{password,jdbcType=VARCHAR}
     where USER_ID_ = #{userID,jdbcType=INTEGER}
 </update>
-  <select id="login" parameterType="int">
-    select count (*) from sys_user
+  <select id="login" resultType="int">
+    select count(*) from sys_user
     where USER_NAME_=#{userName,jdbcType=VARCHAR}
     and  PASSWORD_ = #{password,jdbcType=VARCHAR}
   </select>
   <select id="get" parameterType="com.zhdtedu.system.dao.entity.User" resultType="int">
-    select count (*) from sys_user
+    select count(*) from sys_user
     where  1=1
     <if test="userName != null">
       and  USER_NAME_ = #{userName,jdbcType=VARCHAR}
@@ -98,5 +97,12 @@
        and PHONE_ = #{phone,jdbcType=VARCHAR}
      </if>
 
+  </select>
+  <select id="userTasks" parameterType="com.zhdtedu.system.dao.entity.User" resultMap="BaseResultMap">
+    select sys_user.USER_ID_, sys_user.USER_NAME_, sys_user.PHONE_, sys_user.USER_STATUS_, sys_user.SIGN_UP_TIME_, sys_user.INTEGRAL_, sys_user.WeChat_NickName_,
+    sys_user.PASSWORD_  , sys_task.TASK_TYPE_, sys_task.ORDER_TIME_, sys_task.SCHEDULE_, sys_task.ORDER_AMOUNT_, sys_task.ORDER_PERSON_,
+    sys_task.COMPLETE_ORDER_TIME_ ,sys_task.LINK_,sys_task.QUANTITY_,sys_task.DESCRIPTION_,sys_task.TASK_CATEGORY_,sys_task.INTEGRAL_ as TASK_INTEGER_  from sys_user,sys_task,sys_user_task
+    where sys_user.USER_ID_=sys_user_task.USER_ID_ and sys_user_task.TASK_ID_=sys_task.ID_
+    and  sys_user.USER_ID_=#{userId,jdbcType=INTEGER}
   </select>
 </mapper>

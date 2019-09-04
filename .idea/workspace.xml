@@ -2,132 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2d79c9f-2d84-4341-86f6-28e4441d5e0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/TaskController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/Task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/UserTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/TaskService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/TaskServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/RcsApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/Swagger2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/bean/BaseVO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/bean/RcsArchiveFlowVo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/bean/RcsArchiveInfoVo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/config/ApiVersion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/controller/PointDataController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/Archives.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/BasinInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/BasinInfoExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/BasinInfoExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/BasinInfoExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/BasinInfoExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/JsonResult.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/PointData.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/PointInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/PointInfoExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/PointInfoExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/PointInfoExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/PointInfoExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveFlow.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveFlowExample$Criteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveFlowExample$Criterion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveFlowExample$GeneratedCriteria.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveFlowExample.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/entity/RcsCoordinateInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/BasinInfoMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/BasinInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/CoordinateInfoMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/CoordinateInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/PointDataMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/PointDataMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/PointInfoMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/PointInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/RcsArchiveFlowVoMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/RcsArchiveFlowVoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/RcsArchiveInfoMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/dao/mapper/RcsArchiveInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/BasinInfoService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/BasinInfoServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/CoordinateInfoService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/CoordinateInfoServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/PointDataService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/PointDataServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/PointInfoService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/PointInfoServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/RcsArchiveFlowVoService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/riverchiefs/service/RcsArchiveFlowVoServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/bean/BaseVO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/bean/testVo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/config/ApiVesrsionCondition.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/config/CustomRequestMappingHandlerMapping.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/config/MyBatisMapperScannerConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/config/MybatisPageHelperConf.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/config/MybatisTableConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/config/SpringConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/dao/entity/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/APIVersionNo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/AuthorizationUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/BusinessRuntimeException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/ExceptionUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/FileUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/PageModel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/PageUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/RcsResult.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/ReturnMsg.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/util/SearchCondition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rcs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rcs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/Swagger2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/Swagger2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/controller/BaseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/controller/BasinInfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/controller/CoordinateInfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/controller/PointInfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/controller/RcsArchiveFlowVoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/controller/RcsArchiveInfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/Archives.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/Archives.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/BasinInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/BasinInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/JsonResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/JsonResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveFlow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/RcsArchiveInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/RcsCoordinateInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/RcsCoordinateInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/mapper/PointDataMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/mapper/PointDataMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/service/RcsArchiveInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/service/RcsArchiveInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/BaseDataController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/DepartmentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/SysFileController.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/UpLoadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/RcsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/RcsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/BaseData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/BaseDataExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/Department.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/SysFileInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/UserDepartment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/BaseDataMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/SysFileInfoMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/BaseDataService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/BaseDataServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/DepartmentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/DepartmentServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/SysFileInfoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/BaseDataMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/SysFileInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/SysFileInfoServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/dao/mapper/BaseDataMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/dao/mapper/SysFileInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhdtedu/RcsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/RcsApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/dao/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/dao/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zhdtedu/system/service/UserService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -141,15 +34,24 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/RcsApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-107">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state relative-caret-position="470">
+              <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/Swagger2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -170,6 +72,7 @@
       <find>com.gitee.sunchenbin.mybatis.actable</find>
       <find>Id</find>
       <find>insert</find>
+      <find>integer</find>
     </findStrings>
     <replaceStrings>
       <replace>任务</replace>
@@ -178,6 +81,8 @@
       <replace>id</replace>
       <replace>用户</replace>
       <replace>User</replace>
+      <replace>INTEGRAL_</replace>
+      <replace>integral</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -196,33 +101,35 @@
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/PointInfo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/entity/PointData.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/SysTaskMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/BaseDataMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/mapper/PointDataMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/SysTaskMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/TaskServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/Task.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/SysUserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/SysUserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/TaskService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/SysUserTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/SysUserTaskMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/TaskServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/TaskController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/UserTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/Swagger2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/Task.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/UpLoadController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zhdtedu/RcsApplication.java" />
       </list>
     </option>
   </component>
@@ -243,6 +150,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
@@ -252,6 +161,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -262,43 +172,12 @@
             <path>
               <item name="DouYin" type="b2602c69:ProjectViewProjectNode" />
               <item name="DouYin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DouYin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DouYin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DouYin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DouYin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DouYin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DouYin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zhdtedu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DouYin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DouYin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="zhdtedu" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -309,18 +188,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RCS-WEB2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\IdeaProjects\DouYin\src\main\java\com\zhdtedu\upload" />
       <recent name="C:\Users\Administrator\IdeaProjects\DouYin\src\main\java\com\zhdtedu\system\dao\mapper" />
+      <recent name="C:\Users\Administrator\IdeaProjects\DouYin\src\main\java\com\zhdtedu\system\service\impl" />
       <recent name="C:\Users\Administrator\IdeaProjects\DouYin\src\main\java\com\zhdtedu\system\dao\entity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -328,9 +210,8 @@
       <recent name="com.zhdtedu.system.controller" />
       <recent name="com.zhdtedu.system.service" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\IdeaProjects\DouYin\src\main\java\com\zhdtedu\system\dao\mapper" />
-      <recent name="C:\Users\Administrator\IdeaProjects\DouYin\src\main\java\com\zhdtedu\system\service\impl" />
       <recent name="C:\Users\Administrator\IdeaProjects\DouYin\src\main\java\com\zhdtedu\system\dao\entity" />
     </key>
   </component>
@@ -388,17 +269,35 @@
       <workItem from="1566281445681" duration="818000" />
       <workItem from="1566435130163" duration="7688000" />
       <workItem from="1566445547923" duration="14024000" />
-      <workItem from="1566520618206" duration="1015000" />
+      <workItem from="1566520618206" duration="13724000" />
+      <workItem from="1566540130875" duration="3278000" />
     </task>
+    <task id="LOCAL-00001" summary="修改后提交">
+      <created>1566521863424</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1566521863424</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47422000" />
+    <option name="totallyTimeSpent" value="63409000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19152361" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23927039" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -408,23 +307,23 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7247503" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3207547" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32963374" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32963374" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32963374" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.281909" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.32963374" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.32963374" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.20118026" />
+      <window_info anchor="right" id="Maven" order="3" visible="true" weight="0.20118026" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Database" order="6" />
@@ -436,24 +335,11 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改后提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改后提交" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.m2/repository/org/mybatis/mybatis/3.5.1/mybatis-3.5.1.jar!/org/apache/ibatis/executor/CachingExecutor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/SysTask.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/SysFileInfoMapper.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/SysFileInfoMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/dao/mapper/PointDataMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="8" selection-start-line="8" selection-end-line="15" selection-end-column="201" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/UserDepartment.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/service/PointDataService.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -525,159 +411,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/SysFileInfoService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/DepartmentServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/DepartmentService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/controller/PointDataController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/TaskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="70" column="107" selection-start-line="70" selection-start-column="95" selection-end-line="70" selection-end-column="107" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/UserTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="12" column="101" selection-start-line="12" selection-start-column="97" selection-end-line="12" selection-end-column="101" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="16" column="101" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="101" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/TaskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/TaskServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="68" column="78" selection-start-line="67" selection-start-column="13" selection-end-line="68" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="51" column="28" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/Swagger2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/APIVersionNo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -685,45 +418,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/AuthorizationUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/riverchiefs/controller/PointDataController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="22" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/BusinessRuntimeException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/SearchCondition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="453">
+          <caret line="222" column="25" lean-forward="true" selection-start-line="222" selection-start-column="25" selection-end-line="222" selection-end-column="25" />
+          <folding>
+            <element signature="e#551#559#0" expanded="true" />
+            <element signature="e#3257#3265#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/ExceptionUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/ReturnMsg.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/PageModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/PageUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -740,31 +456,229 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/ReturnMsg.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/PageUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="60">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/PageModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/SearchCondition.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/FileUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="215" column="16" selection-start-line="215" selection-start-column="16" selection-end-line="215" selection-end-column="16" />
+        <state relative-caret-position="120">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/ExceptionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/AuthorizationUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/util/BusinessRuntimeException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="26" column="41" lean-forward="true" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
           <folding>
-            <element signature="e#551#559#0" expanded="true" />
-            <element signature="e#3257#3265#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="28" column="7" lean-forward="true" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserTaskMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/UserTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/TaskMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="55" column="33" lean-forward="true" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="84" column="29" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="73" column="33" lean-forward="true" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/mapper/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="51" column="28" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/dao/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/com/alibaba/fastjson/1.2.54/fastjson-1.2.54.jar!/com/alibaba/fastjson/JSON.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="407" selection-start-line="407" selection-end-line="407" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/upload/upload分页.png" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/UpLoadController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/controller/TaskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="51" column="35" lean-forward="true" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/TaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/system/service/impl/TaskServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="108" column="56" lean-forward="true" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/RcsApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-107">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="470">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zhdtedu/Swagger2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>

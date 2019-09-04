@@ -6,6 +6,7 @@ import com.zhdtedu.util.RcsResult;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public interface UserMapper {
@@ -20,4 +21,5 @@ public interface UserMapper {
     int  login(@Param("userName") String  userName,@Param("password") String password);
     //根据条件获取用户信息
     int  get(User user);
+    List<User> userTasks(User user);
 }

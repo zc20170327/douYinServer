@@ -41,12 +41,12 @@ public class User {
 
     @ApiModelProperty(value = "积分")
     @Column(name = "INTEGRAL_",type = MySqlTypeConstant.INT,length = 111)
-    private Integer	integer;
+    private Integer	integral;
 
 
     @ApiModelProperty(value = "微信昵称")
     @Column(name = "WeChat_NickName_",type = MySqlTypeConstant.VARCHAR,length = 111)
-    private String	weChatNickName;
+    private String	wechatNickName;
 
    //一个用户可以有多个订单
     private List<Task> tasks;

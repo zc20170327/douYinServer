@@ -16,6 +16,8 @@ public interface UserService {
         PageModel getPages(String pageIndex, int pageSize);
         //登录
         RcsResult  login(String name ,String  password);
+        //获取用户的任务
+        RcsResult userTasks(User user);
 
 
 

@@ -27,7 +27,6 @@ public class UserController {
      */
 
     @ApiOperation(value = "新增用户数据信息", notes = "新增用户数据信息")
-    @ApiImplicitParam(name = "User", required = true, dataType = "User")
     @PostMapping("/insert")
     public RcsResult insert(@RequestBody User user) {
         RcsResult result = userService.insert(user);
@@ -66,5 +65,13 @@ public class UserController {
         PageModel PageModel=userService.getPages(pageIndex,5);
         return  RcsResult.ok(PageModel);
     }
+    /**
+     * 获取用户任务
+     */
+    @ApiOperation(value = "获取用户任务信息列表", notes = "根据索引页pageIndex获取数据列表")
+    @PostMapping("/userTasks")
+    public  RcsResult userTasks(@RequestBody User user){
+        return  userService.userTasks(user);
 
+    }
 }

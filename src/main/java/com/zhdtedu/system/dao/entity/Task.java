@@ -55,7 +55,7 @@ public class Task {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "COMPLETE_ORDER_TIME_",type = MySqlTypeConstant.DATETIME)
-    private String	completeOrderTime;
+    private Date	completeOrderTime;
     //链接，数量，描述
     @ApiModelProperty(value = "链接")
     @Column(name = "LINK_",type = MySqlTypeConstant.VARCHAR,length = 50)
@@ -73,7 +73,7 @@ public class Task {
 
     @ApiModelProperty(value = "积分")
     @Column(name = "INTEGRAL_",type = MySqlTypeConstant.INT,length = 111)
-    private Integer	integer;
+    private Integer	integral;
 
 
 

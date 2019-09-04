@@ -113,4 +113,16 @@ public class UserServiceImpl implements UserService {
             return  RcsResult.build(500,e.getMessage());
         }
     }
+
+    @Override
+    public RcsResult userTasks(User user) {
+        try {
+            List<User> users = userMapper.userTasks(user);
+            return RcsResult.ok(users);
+        }catch(Exception e){
+            e.printStackTrace();
+            return  RcsResult.build(500,e.getMessage());
+
+        }
+    }
 }

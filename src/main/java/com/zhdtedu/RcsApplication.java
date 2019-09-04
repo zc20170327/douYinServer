@@ -10,8 +10,6 @@ import org.springframework.web.filter.CorsFilter;
 
 @SpringBootApplication
 @MapperScan({"com.zhdtedu.riverchiefs.dao.*","com.zhdtedu.system.dao"})
-
-
 public class RcsApplication {
     public static void main(String[] args) {
         SpringApplication.run(RcsApplication.class, args);
@@ -35,6 +33,4 @@ public class RcsApplication {
         source.registerCorsConfiguration("/**", buildConfig()); // 4
         return new CorsFilter(source);
     }
-
-
 }
