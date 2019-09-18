@@ -1,9 +1,11 @@
 package com.zhdtedu.system.dao.entity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Column;
 import com.gitee.sunchenbin.mybatis.actable.annotation.Table;
 import com.gitee.sunchenbin.mybatis.actable.constants.MySqlTypeConstant;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 import java.util.List;
@@ -34,7 +36,8 @@ public class User {
     private Integer	userStatus;
 
 
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "注册时间")
     @Column(name = "SIGN_UP_TIME_",type = MySqlTypeConstant.DATETIME)
     private Date signUpTime;
@@ -50,6 +53,5 @@ public class User {
 
    //一个用户可以有多个订单
     private List<Task> tasks;
-
 
 }

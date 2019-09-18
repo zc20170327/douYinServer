@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhdtedu.system.dao.mapper.TransactionMapper">
+  <resultMap id="BaseResultMap" type="com.zhdtedu.system.dao.entity.Transaction">
+    <result column="ID_" jdbcType="INTEGER" property="id" />
+    <result column="USER_ID_" jdbcType="INTEGER" property="userId" />
+    <result column="OPERATOR_ID_" jdbcType="INTEGER" property="operatorId" />
+    <result column="AMOUNT_" jdbcType="INTEGER" property="amount" />
+    <result column="TRANSACTION_TIME_" jdbcType="TIMESTAMP" property="transactionTime" />
+    <result column="REVIEW_TIME_" jdbcType="TIMESTAMP" property="reviewTime" />
+    <result column="TYPE_" jdbcType="VARCHAR" property="type" />
+    <result column="STATUS_" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <delete id="deleteById" parameterType="com.zhdtedu.system.dao.entity.Transaction">
+    delete from sys_transaction
+    where ID_ = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhdtedu.system.dao.entity.Transaction">
+    insert into sys_transaction ( USER_ID_, OPERATOR_ID_,
+      AMOUNT_, TRANSACTION_TIME_,REVIEW_TIME_, TYPE_,
+      STATUS_ )
+    values (#{userId,jdbcType=INTEGER}, #{operatorId,jdbcType=INTEGER}, #{amount,jdbcType=INTEGER},
+      #{transactionTime,jdbcType=TIMESTAMP},#{reviewTime,jdbcType=TIMESTAMP}, #{type,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <!-- 获得总记录数 -->
+
+  <select id="getTotalCount" resultType="int"   >
+    select count(*) from  sys_transaction
+    where 1=1
+    <!-- <if test="name != null">
+      and NAME_=#{name}
+    </if>
+    <if test="start_time != null">
+      and TIME_ &gt; #{start_time}
+    </if>
+    <if test="end_time != null">
+      and TIME_ &lt;#{end_time}
+    </if> -->
+  </select>
+  <!--根据名称和开始时间，结束时间获取监测点列表 " -->
+  <select id="getLists" resultMap="BaseResultMap"   >
+    select ID_ ,USER_ID_, OPERATOR_ID_,
+    AMOUNT_, TRANSACTION_TIME_,REVIEW_TIME_, TYPE_,
+    STATUS_  from sys_transaction
+    where 1=1
+
+   <!-- <if test="name != null"></if>-->
+    <!--
+    <if test="name != null">
+      and NAME_=#{name}
+    </if>
+    <if test="start_time != null">
+      and TIME_ &gt; #{start_time}
+    </if>
+    <if test="end_time != null">
+      and TIME_ &lt;#{end_time}
+    </if> -->
+    <if test="transactionId != 0">
+      and ID_=${transactionId}
+    </if>
+    <if test=" pageIndex != 0 and pageSize!=0 ">
+    limit ${(pageIndex-1)*pageSize},${pageSize}
+    </if>
+  </select>
+  <update id="updateById" parameterType="map">
+    update sys_transaction
+    set ID_ = #{id,jdbcType=INTEGER},
+      USER_ID_ = #{userId,jdbcType=INTEGER},
+      OPERATOR_ID_ = #{operatorId,jdbcType=INTEGER},
+      AMOUNT_ = #{amount,jdbcType=INTEGER},
+      TRANSACTION_TIME_ = #{transactionTime,jdbcType=TIMESTAMP},
+      REVIEW_TIME_ = #{reviewTime,jdbcType=TIMESTAMP},
+      TYPE_ = #{type,jdbcType=VARCHAR},
+      STATUS_ = #{status,jdbcType=VARCHAR}
+    where ID_ = #{id,jdbcType=INTEGER}
+</update>
+  <select id="get" parameterType="com.zhdtedu.system.dao.entity.Transaction" resultMap="BaseResultMap">
+    select ID_ ,USER_ID_, OPERATOR_ID_,
+    AMOUNT_, TRANSACTION_TIME_,REVIEW_TIME_, TYPE_,
+    STATUS_  from sys_transaction
+    where  1=1
+    <if test=" id != null">
+      and  ID_ = #{id,jdbcType=INTEGER}
+    </if>
+  </select>
+</mapper>

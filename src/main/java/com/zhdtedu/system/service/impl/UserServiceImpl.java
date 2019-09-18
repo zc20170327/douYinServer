@@ -1,7 +1,9 @@
 package com.zhdtedu.system.service.impl;
 import com.zhdtedu.system.dao.entity.Task;
+import com.zhdtedu.system.dao.entity.Transaction;
 import com.zhdtedu.system.dao.entity.User;
 import com.zhdtedu.system.dao.mapper.TaskMapper;
+import com.zhdtedu.system.dao.mapper.TransactionMapper;
 import com.zhdtedu.system.dao.mapper.UserMapper;
 import com.zhdtedu.system.service.TaskService;
 import com.zhdtedu.system.service.UserService;
@@ -10,12 +12,15 @@ import com.zhdtedu.util.RcsResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    TransactionMapper transactionMapper;
 
 
     @Override
@@ -102,11 +107,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public RcsResult login(String name, String password) {
         try {
-            int count =userMapper.login(name,password);
-            if (count>0){
-                return RcsResult.build(201,"登录成功",1);
+            List<User> users =userMapper.login(name,password);
+            if (users.size()>0){
+                return RcsResult.build(201,"登录成功",users);
             }else{
-                return RcsResult.build(404,"登录失败",0);
+                return RcsResult.build(404,"登录失败",users);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -122,6 +127,137 @@ public class UserServiceImpl implements UserService {
         }catch(Exception e){
             e.printStackTrace();
             return  RcsResult.build(500,e.getMessage());
+
+        }
+    }
+
+    @Override
+    public RcsResult get(User user) {
+        try {
+            List<User> users=userMapper.getUser(user);
+            return RcsResult.ok(users);
+        }catch (Exception e){
+            return  RcsResult.build(500,e.getMessage());
+        }
+
+    }
+
+    @Override
+    public RcsResult recharge(int userId, int amount) {
+        try {
+            Transaction transaction=new Transaction();
+            transaction.setTransactionTime(new Date());
+            transaction.setUserId(userId);
+            transaction.setAmount(amount);
+            transaction.setStatus("未审核");
+            transaction.setType("充值");
+            transactionMapper.insert(transaction);
+            return RcsResult.build(201,"用户ID"+userId+"充值成功:"+amount+";请管理员及时审核");
+
+        }catch (Exception e){
+            return  RcsResult.build(500,e.getMessage());
+        }
+
+    }
+    @Override
+    public RcsResult withdraw(int userId, int amount) {
+        try {
+            Transaction transaction=new Transaction();
+            transaction.setTransactionTime(new Date());
+            transaction.setUserId(userId);
+            transaction.setAmount(amount);
+            transaction.setStatus("未审核");
+            transaction.setType("提现");
+            transactionMapper.insert(transaction);
+            return RcsResult.build(201,"用户ID"+userId+"提现成功:"+amount+";请管理员及时审核");
+
+        }catch (Exception e){
+            return  RcsResult.build(500,e.getMessage());
+        }
+    }
+    @Override
+    public RcsResult rechargeReview(int userId, int amount,int operatorId,int transactionId) {
+        User user=new User();
+        user.setUserId(userId);
+        try {
+            List<User> users=userMapper.getUser(user);
+            if(users.size()>0){
+                User newUser=users.get(0);
+                newUser.setIntegral(newUser.getIntegral()+amount);
+                //更新用户积分
+                userMapper.updateById(newUser);
+                //更新交易订单的信息
+                Transaction transaction=new Transaction();
+                transaction.setId(transactionId);
+                List<Transaction> transactions=transactionMapper.get(transaction);
+                if(transactions.size()>0){
+                    transaction=transactions.get(0);
+                    transaction.setStatus("审核");
+                    transaction.setOperatorId(operatorId);
+                    transaction.setReviewTime(new Date());
+                    transactionMapper.updateById(transaction);
+                }
+                else{
+                    return  RcsResult.build(500,"充值订单不存在");
+                }
+                return RcsResult.build(201,newUser.getUserName()+"充值成功:"+amount);
+            }else{
+                return  RcsResult.build(500,"充值用户不存在");
+            }
+        }catch (Exception e){
+            return  RcsResult.build(500,e.getMessage());
+        }
+
+    }
+
+    @Override
+    public RcsResult withdrawReview(int userId, int amount,int operatorId,int transactionId) {
+        User user=new User();
+        user.setUserId(userId);
+        try {
+            List<User> users=userMapper.getUser(user);
+            if(users.size()>0){
+                User newUser=users.get(0);
+                newUser.setIntegral(newUser.getIntegral()-amount);
+                userMapper.updateById(newUser);
+                //更新交易订单的信息
+                Transaction transaction=new Transaction();
+                transaction.setId(transactionId);
+                List<Transaction> transactions=transactionMapper.get(transaction);
+                if(transactions.size()>0){
+                    transaction=transactions.get(0);
+                    transaction.setStatus("审核");
+                    transaction.setOperatorId(operatorId);
+                    transaction.setReviewTime(new Date());
+                    transactionMapper.updateById(transaction);
+                }
+                else{
+                    return  RcsResult.build(500,"充值订单不存在");
+                }
+                return RcsResult.build(201,newUser.getUserName()+"提现成功:"+amount);
+            }else{
+                return  RcsResult.build(500,"充值用户不存在");
+            }
+        }catch (Exception e){
+            return  RcsResult.build(500,e.getMessage());
+        }
+
+    }
+
+    @Override
+    public void imageRecharge(int userId, int amount) {
+        User user=new User();
+        user.setUserId(userId);
+        try {
+            List<User> users=userMapper.getUser(user);
+            if(users.size()>0){
+                User newUser=users.get(0);
+                newUser.setIntegral(newUser.getIntegral()+amount);
+                //更新用户积分
+                userMapper.updateById(newUser);
+            }else{
+            }
+        }catch (Exception e){
 
         }
     }

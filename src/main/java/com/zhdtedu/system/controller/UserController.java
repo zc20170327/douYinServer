@@ -46,7 +46,6 @@ public class UserController {
      *
      */
     @ApiOperation(value = "更新用户数据信息", notes = "获取用户数据记录并更新用户数据信息")
-    @ApiImplicitParam(name = "User", value = "需要更新的用户数据", required = true, dataType = "User")
     @PutMapping("/update")
     public RcsResult update(@RequestBody User user){
         return      userService.update(user);
@@ -58,7 +57,7 @@ public class UserController {
     int  currentPageNo=0;
     int  pageSize=5;
     int totalCount=0;
-    @ApiOperation(value = "获取用户数据列表", notes = "根据索引页pageIndex获取数据列表")
+    @ApiOperation(value = "获取用户数据列表-用户后台分页查询", notes = "根据索引页pageIndex获取数据列表")
     @GetMapping("/users")
     public RcsResult getLists(
             @ApiParam( name="pageIndex", value="索引页") @RequestParam(value="pageIndex",required=true,defaultValue="1") String pageIndex) {
@@ -68,10 +67,19 @@ public class UserController {
     /**
      * 获取用户任务
      */
-    @ApiOperation(value = "获取用户任务信息列表", notes = "根据索引页pageIndex获取数据列表")
+    @ApiOperation(value = "获取用户任务信息列表", notes = "根据用户id，获取任务信息，不传ID获取所有已被领取任务")
     @PostMapping("/userTasks")
     public  RcsResult userTasks(@RequestBody User user){
         return  userService.userTasks(user);
-
     }
+
+    /**
+     * 根据条件获取用户信息
+     */
+    @ApiOperation(value = "据条件获取用户信息", notes = "据条件获取用户信息")
+    @PostMapping("/get")
+    public  RcsResult get(@RequestBody User user){
+        return  userService.get(user);
+    }
+
 }

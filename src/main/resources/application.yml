@@ -29,6 +29,6 @@ spring:
         prefix: /WEB-INF/jsp/
         suffix: .jsp
       #控制台打印sql语句
-        logging:
-          level:
-            com.ming.ssm.mapper: debug
+logging:
+    level:
+      com.zhdtedu.system.dao.mapper: debug

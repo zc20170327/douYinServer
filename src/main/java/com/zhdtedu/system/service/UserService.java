@@ -18,7 +18,17 @@ public interface UserService {
         RcsResult  login(String name ,String  password);
         //获取用户的任务
         RcsResult userTasks(User user);
-
-
+        //更具条件获取用户信息
+        RcsResult get(User user);
+        //用户充值
+        RcsResult recharge(int  userId,int amount);
+        //用户提现
+        RcsResult withdraw(int  userId,int amount);
+        //用户充值审核
+        RcsResult rechargeReview(int userId, int amount,int operatorId,int transactionId);
+        //用户提现审核
+        RcsResult withdrawReview(int userId, int amount,int operatorId,int transactionId);
+        //图片识别后的充值，不用审核
+        void  imageRecharge(int  userId,int amount);
 
 }

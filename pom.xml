@@ -105,18 +105,26 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.54</version>
         </dependency>
-
         <!-- end actable -->
-
-
+        <dependency>
+            <groupId>imageHelpe</groupId>
+            <artifactId>imageHelpe</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/lib/imageHelpe-0.0.1-SNAPSHOT.jar</systemPath>
+        </dependency>
 
     </dependencies>
+
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
         </plugins>
         <resources>

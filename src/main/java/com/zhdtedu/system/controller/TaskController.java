@@ -29,6 +29,8 @@ public class TaskController {
     @ApiImplicitParam(name = "task", required = true, dataType = "Task")
     @PostMapping("/insert")
     public RcsResult insert(@RequestBody Task task) {
+        //设置初始数量等于剩余数量
+        task.setInit_quantity(task.getQuantity());
         RcsResult result = taskService.insert(task);
         return result;
     }
@@ -61,8 +63,9 @@ public class TaskController {
     @ApiOperation(value = "获取任务数据列表", notes = "根据索引页pageIndex获取数据列表")
     @GetMapping("/tasks")
     public RcsResult getLists(
-            @ApiParam( name="pageIndex", value="索引页") @RequestParam(value="pageIndex",required=true,defaultValue="1") String pageIndex) {
-        PageModel PageModel=taskService.getPages(pageIndex,5);
+            @ApiParam( name="pageIndex", value="索引页") @RequestParam(value="pageIndex",required=true,defaultValue="1") String pageIndex,
+            @ApiParam( name="pageSize", value="每页显示条数") @RequestParam(value="pageSize",required=true,defaultValue="5") String pageSize ) {
+        PageModel PageModel=taskService.getPages(pageIndex,pageSize);
         return  RcsResult.ok(PageModel);
     }
     @ApiOperation(value = "做任务",notes="做任务")

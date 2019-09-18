@@ -1,27 +1,29 @@
 package com.zhdtedu.system.service.impl;
-import com.zhdtedu.system.dao.entity.Task;
-import com.zhdtedu.system.dao.entity.UserTask;
-import com.zhdtedu.system.dao.mapper.TaskMapper;
-import com.zhdtedu.system.dao.mapper.UserTaskMapper;
-import com.zhdtedu.system.service.TaskService;
+
+
+
+import com.zhdtedu.system.dao.entity.Transaction;
+import com.zhdtedu.system.dao.entity.User;
+import com.zhdtedu.system.dao.mapper.TransactionMapper;
+import com.zhdtedu.system.service.TransactionService;
 import com.zhdtedu.util.PageModel;
 import com.zhdtedu.util.RcsResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-@Service
-public class TaskServiceImpl implements TaskService {
-    @Autowired
-    TaskMapper taskMapper;
-    @Autowired
-    UserTaskMapper userTaskMapper;
 
+
+import java.util.List;
+
+@Service
+public class TransactionServiceImpl implements TransactionService {
+    @Autowired
+    TransactionMapper transactionMapper;
 
     @Override
-    public RcsResult insert(Task task) {
+    public RcsResult insert(Transaction transaction) {
         try{
-            taskMapper.insert(task);
+            transactionMapper.insert(transaction);
         }catch (Exception e){
             e.printStackTrace();
             return  RcsResult.build(500,e.getMessage());
@@ -32,7 +34,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public RcsResult deleteById(int id) {
         try{
-            taskMapper.deleteById(id);
+            transactionMapper.deleteById(id);
         }catch (Exception e){
             e.printStackTrace();
             return   RcsResult.build(500,e.getMessage());
@@ -41,9 +43,9 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public RcsResult update(Task task) {
+    public RcsResult update(Transaction transaction) {
         try{
-            taskMapper.updateById(task);
+            transactionMapper.updateById(transaction);
         }catch (Exception e){
             e.printStackTrace();
             return  RcsResult.build(500,e.getMessage());
@@ -54,11 +56,12 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public PageModel getPages(String  pageIndex, String pageSize) {
+    public PageModel getPages(String  pageIndex, String pageSize,String transactionId) {
         int counts=0;
-        List<Task> taskLists=null;
+        List<Transaction> transactionLists=null;
         int  currentPageNo=0;
         int  pageSizeNo=0;
+        int transactionNo=0;
         if(pageIndex != null){
             try{
                 currentPageNo = Integer.valueOf(pageIndex);
@@ -73,9 +76,16 @@ public class TaskServiceImpl implements TaskService {
                 e.printStackTrace();
             }
         }
+        if(transactionId != null){
+            try{
+                transactionNo = Integer.valueOf(transactionId);
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+            }
+        }
         //获取当前条件下的总条数
         try {
-            counts=taskMapper.getTotalCount();
+            counts=transactionMapper.getTotalCount();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -83,41 +93,22 @@ public class TaskServiceImpl implements TaskService {
         PageModel pageModel=  new PageModel(currentPageNo,counts,pageSizeNo);
         //获取当前页的数据
         try {
-            taskLists= taskMapper.getLists(currentPageNo,pageSizeNo);
+            transactionLists= transactionMapper.getLists(currentPageNo,pageSizeNo,transactionNo);
 
         }catch (Exception e){
             e.printStackTrace();
         }
-        pageModel.setList(taskLists);
+        pageModel.setList(transactionLists);
         return  pageModel;
     }
 
     @Override
-    public RcsResult doTask(int taskID, int userId) {
-        UserTask userTask=new UserTask();
-        userTask.setTaskId(taskID);
-        userTask.setUserId(userId);
+    public RcsResult get(Transaction transaction) {
         try {
-            int  count =userTaskMapper.get(userTask);
-            if(count>0){
-                return RcsResult.build(500,"任务已和该用户关联");
-            }else{
-                Task task=new Task();
-                task.setId(taskID);
-                //根据ID获取任务
-                task=taskMapper.get(task);
-                task.setQuantity(task.getQuantity()-1);
-                //更新任务-1
-                taskMapper.updateById(task);
-                //添加和用户关联
-                userTaskMapper.insert(userTask);
-            }
+            List<Transaction> transactions=transactionMapper.get(transaction);
+            return RcsResult.ok(transactions);
         }catch (Exception e){
-            e.printStackTrace();
             return  RcsResult.build(500,e.getMessage());
         }
-
-
-        return RcsResult.ok();
     }
 }

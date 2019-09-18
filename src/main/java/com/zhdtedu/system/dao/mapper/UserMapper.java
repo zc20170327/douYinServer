@@ -18,8 +18,10 @@ public interface UserMapper {
     //获取用户数据列表
     ArrayList<User> getLists(@Param("pageIndex")int pageIndex, @Param("pageSize")int pageSize);
     //登录
-    int  login(@Param("userName") String  userName,@Param("password") String password);
-    //根据条件获取用户信息
+    List<User>  login(@Param("userName") String  userName,@Param("password") String password);
+    //根据条件获取用户信息,返回用户的条数
     int  get(User user);
     List<User> userTasks(User user);
+    //根据条件获取用户的信息，返回用户的信息
+    List<User> getUser(User user);
 }

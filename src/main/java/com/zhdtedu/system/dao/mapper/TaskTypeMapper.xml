@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhdtedu.system.dao.mapper.TaskTypeMapper">
+  <resultMap id="BaseResultMap" type="com.zhdtedu.system.dao.entity.TaskType">
+    <result column="ID_" jdbcType="INTEGER" property="id" />
+    <result column="TASK_TYPE_NAME" jdbcType="VARCHAR" property="taskTypeName" />
+    <result column="TASK_TYPE_INTEGRAL" jdbcType="INTEGER" property="taskTypeIntegral" />
+  </resultMap>
+  <select id="get" parameterType="com.zhdtedu.system.dao.entity.TaskType" resultMap="BaseResultMap">
+    select ID_,TASK_TYPE_NAME,TASK_TYPE_INTEGRAL
+    from sys_task_type
+    where 1=1
+    <if test="id != null">
+      and  ID_ = #{id,jdbcType=INTEGER}
+    </if>
+    <if test="taskTypeName != null">
+      and  TASK_TYPE_NAME = #{taskTypeName,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <delete id="deleteById" parameterType="com.zhdtedu.system.dao.entity.TaskType">
+    delete from sys_task_type
+    where  ID_=#{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhdtedu.system.dao.entity.TaskType">
+    insert into sys_task_type (TASK_TYPE_NAME, TASK_TYPE_INTEGRAL
+      )
+    values (#{taskTypeName,jdbcType=VARCHAR}, #{taskTypeIntegral,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateById" parameterType="com.zhdtedu.system.dao.entity.TaskType">
+    update sys_task_type
+    set ID_ = #{id,jdbcType=INTEGER},
+      TASK_TYPE_NAME = #{taskTypeName,jdbcType=VARCHAR},
+      TASK_TYPE_INTEGRAL = #{taskTypeIntegral,jdbcType=INTEGER}
+    where  ID_=#{id,jdbcType=INTEGER}
+  </update>
+</mapper>

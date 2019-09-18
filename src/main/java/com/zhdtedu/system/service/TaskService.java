@@ -12,6 +12,6 @@ public interface TaskService {
         //根据ID更新监测点
         RcsResult update(Task task);
         //根据起始页获取数据
-        PageModel getPages(String pageIndex, int pageSize);
+        PageModel getPages(String pageIndex, String pageSize);
         RcsResult doTask(int taskID,int userId);
 }

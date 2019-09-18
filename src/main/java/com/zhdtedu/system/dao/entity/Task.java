@@ -25,6 +25,10 @@ public class Task {
     @Column(name = "TASK_TYPE_",type = MySqlTypeConstant.VARCHAR,length = 11)
     private String	taskType;
 
+    @ApiModelProperty(value = "积分")
+    @Column(name = "INTEGRAL_",type = MySqlTypeConstant.INT,length = 111)
+    private Integer	integral;
+
     @ApiModelProperty(value="任务类别")
     @Column(name="TASk_CATEGORY_", type=MySqlTypeConstant.VARCHAR,length = 11)
     private String taskCategory;
@@ -62,7 +66,7 @@ public class Task {
     private String	link;
 
     //链接，数量，描述
-    @ApiModelProperty(value = "数量")
+    @ApiModelProperty(value = "剩余数量")
     @Column(name = "QUANTITY_",type = MySqlTypeConstant.INT,length = 11)
     private Integer	quantity;
 
@@ -71,10 +75,11 @@ public class Task {
     private String	description;
 
 
-    @ApiModelProperty(value = "积分")
-    @Column(name = "INTEGRAL_",type = MySqlTypeConstant.INT,length = 111)
-    private Integer	integral;
 
 
+    //最初的数量
+    @ApiModelProperty(value = "最初的数量")
+    @Column(name = "INIT_QUANTITY_",type = MySqlTypeConstant.INT,length = 11)
+    private Integer	init_quantity;
 
 }

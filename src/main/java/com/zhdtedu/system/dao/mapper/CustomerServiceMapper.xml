@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhdtedu.system.dao.mapper.CustomerServiceMapper">
+  <resultMap id="BaseResultMap" type="com.zhdtedu.system.dao.entity.CustomerService">
+    <result column="ID_" jdbcType="INTEGER" property="id" />
+    <result column="QQ_" jdbcType="INTEGER" property="qq" />
+    <result column="PHONE_" jdbcType="VARCHAR" property="phone" />
+    <result column="DESCRIPTION_" jdbcType="VARCHAR" property="description" />
+    <result column="CUSTOMER_NAME_" jdbcType="VARCHAR" property="customerName" />
+  </resultMap>
+  <select id="getTotalCount" resultType="int"   >
+    select count(*) from  sys_transaction
+    where 1=1
+  </select>
+  <select id="getLists" resultMap="BaseResultMap"   >
+    select ID_ ,QQ_, PHONE_,
+    DESCRIPTION_, CUSTOMER_NAME_ from sys_customer_service
+    where 1=1
+    <if test="customerId != 0">
+      and ID_=${customerId}
+    </if>
+    <if test=" pageIndex != 0 and pageSize!=0 ">
+      limit ${(pageIndex-1)*pageSize},${pageSize}
+    </if>
+  </select>
+  <delete id="deleteById" parameterType="com.zhdtedu.system.dao.entity.CustomerService">
+    delete from sys_customer_service
+    where  ID_=#{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zhdtedu.system.dao.entity.CustomerService">
+    insert into sys_customer_service (QQ_, PHONE_,
+    DESCRIPTION_, CUSTOMER_NAME_
+      )
+    values (#{qq,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
+     ,#{customerName,jdbcType=VARCHAR} )
+  </insert>
+  <update id="updateById" parameterType="com.zhdtedu.system.dao.entity.CustomerService">
+    update sys_customer_service
+    set ID_ = #{id,jdbcType=INTEGER},
+      QQ_ = #{qq,jdbcType=INTEGER},
+      PHONE_ = #{phone,jdbcType=VARCHAR},
+      DESCRIPTION_ = #{description,jdbcType=VARCHAR},
+      CUSTOMER_NAME_ = #{customerName,jdbcType=VARCHAR}
+    where  ID_=#{id,jdbcType=INTEGER}
+  </update>
+</mapper>

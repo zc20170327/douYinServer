@@ -22,4 +22,6 @@ public class UserTask {
     @ApiModelProperty(value = "用户ID")
     @Column(name = "USER_ID_",type = MySqlTypeConstant.INT,length = 11)
     private Integer userId;
+
+
 }
